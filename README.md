@@ -1,2 +1,2 @@
 # college-event
-A basic website for college events 
+A basic website for college event 
