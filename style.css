@@ -1,27 +1,79 @@
- :root {
-    --primary-color: #1977cc;
-    --secondary-color: #2c3e50;
-    --accent-color: #f39c12;
+:root {
+    --primary-color: #003366;
+    --secondary-color: #e6a919;
     --light-color: #f8f9fa;
-    --dark-color: #343a40;
-} 
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: #444444;
 }
-.topbar {
+.top-bar {
     background-color: var(--primary-color);
     color: white;
-    padding: 10px 0;
-    font-size: 14px;
+    font-size: 0.9rem;
+    padding: 5px 0;
 }
-
-.topbar a {
+.top-bar a {
     color: white;
     text-decoration: none;
-    margin-right: 15px;
+    margin: 0 10px;
+    transition: color 0.3s;
 }
-
-.topbar i {
-    margin-right: 5px;
+.top-bar a:hover {
+    color: var(--secondary-color);
+}
+.navbar-brand img {
+    height: 60px;
+    transition: all 0.3s;
+}
+.navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+.navbar-nav .nav-link {
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 10px 15px;
+    margin: 0 5px;
+    position: relative;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--secondary-color);
+}
+.navbar-nav .nav-link:hover:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+.hero-header {
+    background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), 
+                url('https://upload.wikimedia.org/wikipedia/commons/7/77/Main_Quadrangle,_University_of_Sydney_(cropped).jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+.btn-apply {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+.btn-apply:hover {
+    background-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 992px) {
+    .navbar-brand img {
+        height: 50px;
+    }
+    .hero-header {
+        padding: 70px 0;
+    }
 }
