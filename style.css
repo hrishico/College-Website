@@ -77,3 +77,36 @@
         padding: 70px 0;
     }
 }
+.about-section {
+    background-color: #f8f9fa;
+}
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #f93;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.feature-box {
+    background-color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+.about-content {
+    background-color: white;
+    height: 100%;
+}
+.feature-icon {
+    position: relative;
+    top: 15px; /* This pushes the icons down slightly */
+}
