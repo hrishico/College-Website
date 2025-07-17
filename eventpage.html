@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Page</title>
+  <link rel="stylesheet" href="eventstyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri</div>
+      <ul class="nav-links">
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="event-container">
+    <section class="event-list collapsed" id="eventList">
+      <div class="toggle-btn" onclick="toggleEventList()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <h2>Upcoming Events</h2>
+      <ul>
+        <li>Kalavishkar '25</li>
+        <li>Sports '26</li>
+        <li>Annual Gatherings '26 Expo</li>
+      </ul>
+    </section>
+
+    <div class="vertical-divider"></div>
+
+    <section class="event-details" id="eventDetails">
+      <h2>Event Details</h2>
+      <p>Select an event from the list to see details here.</p>
+    </section>
+  </main>
+
+  <script>
+    function toggleEventList() {
+      const eventList = document.getElementById('eventList');
+      const eventDetails = document.getElementById('eventDetails');
+      eventList.classList.toggle('collapsed');
+      eventDetails.classList.toggle('expanded');
+    }
+  </script>
+</body>
+</html>
