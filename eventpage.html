@@ -3,50 +3,256 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Event Page</title>
-  <link rel="stylesheet" href="eventstyle.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>Kalavishkar 2025 - Event Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
   <header>
     <nav class="navbar">
       <div class="logo"><i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri</div>
       <ul class="nav-links">
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">My Account</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Events</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="event-container">
-    <section class="event-list collapsed" id="eventList">
-      <div class="toggle-btn" onclick="toggleEventList()">
-        <i class="fa-solid fa-bars"></i>
+  <div class="main-container">
+    <aside class="sidebar" id="eventList">
+      <div class="sidebar-header">
+        <h2>Upcoming Events</h2>
+        <button onclick="toggleEventList()"><i class="fas fa-bars"></i></button>
       </div>
-      <h2>Upcoming Events</h2>
-      <ul>
-        <li>Kalavishkar '25</li>
-        <li>Sports '26</li>
-        <li>Annual Gatherings '26 Expo</li>
+      <ul class="event-list">
+        <li onclick="toggleMini(this); showContent('kalavishkar')">
+          Kalavishkar '26
+          <ul class="mini-events">
+            <li onclick="event.stopPropagation(); showContent('codewar')">CodeWar</li>
+            <li onclick="event.stopPropagation(); showContent('debugging')">Debugging Duel</li>
+            <li onclick="event.stopPropagation(); showContent('techquiz')">Tech Quiz</li>
+          </ul>
+        </li>
+        <li onclick="showContent('sports')">Sports '26</li>
+        <li onclick="showContent('gathering')">Annual Gathering '26 Expo</li>
       </ul>
-    </section>
+    </aside>
 
-    <div class="vertical-divider"></div>
+    <div class="content-area" id="eventDetails">
+      <div id="content">
+        <div id="typed-text"></div>
+        <p> Please stay tuned for updates and announcements about upcoming cultural and technical activities at Govt. Polytechnic Ratnagiri.</p>
+      </div>
 
-    <section class="event-details" id="eventDetails">
-      <h2>Event Details</h2>
-      <p>Select an event from the list to see details here.</p>
-    </section>
-  </main>
+      <!-- Why Attend Section -->
+      <section class="why-attend">
+        <h2>Why Attend Our Events?</h2>
+        <p>Our events foster creativity, technical excellence and cultural unity!</p>
+      </section>
+
+      <!-- Event Highlights Section -->
+      <section class="featured-events">
+  <h2>Featured Events</h2>
+  <div class="featured-boxes">
+    <div class="feature-box">
+      <h3>Dance Performance</h3>
+      <p>Energetic group and solo performances showcasing various traditional and modern dance styles.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Drama Play</h3>
+      <p>Stage acts and skits performed by students focusing on social themes and entertainment.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Singing Competition</h3>
+      <p>Solo and duet singing performances judged by local artists and music faculty.</p>
+    </div>
+  </div>
+</section>
+
+
+
+      <!-- Additional Event Sections -->
+      <section class="explore-events">
+  <h2>Explore More Events</h2>
+  <div class="explore-cards">
+    <div class="card">
+      <h3>Poster Making</h3>
+      <p>Creative competition to showcase technical themes through art.</p>
+    </div>
+    <div class="card">
+      <h3>Group Singing</h3>
+      <p>Melodious harmony from various departments performing together.</p>
+    </div>
+    <div class="card">
+      <h3>Speech Contest</h3>
+      <p>Showcase your thoughts with impactful public speaking skills.</p>
+    </div>
+    <div class="card">
+      <h3>Cultural Performances</h3>
+      <p>Diverse dance and drama performances by talented students.</p>
+    </div>
+  </div>
+</section>
+
+<!--testimonials section-->
+<section class="event-testimonials">
+  <h2>What Students Say</h2>
+  <div class="testimonial-cards">
+    <div class="testimonial-card">
+      <p>"Kalavishkar was an unforgettable experience! Loved the vibe, energy, and opportunities."</p>
+      <h4>- Sarvesh, Computer Dept.</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"From tech exhibitions to cultural night, it brought the whole campus together beautifully."</p>
+      <h4>- Atharv, Mechanical Dept.</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"I performed on stage for the first time—so many memories and confidence gained!"</p>
+      <h4>- Prasad, ENTC Dept.</h4>
+    </div>
+  </div>
+</section>
+
+<!--Photo Gallery-->
+<section class="photo-gallery">
+  <h2>Glimpses of Past Events</h2>
+  <div class="gallery-grid">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzDH6X5XZXtAT1RGnw7510T7C3uUHT_afRcUo2Tzt2xNiZw-LA4nrTCOUSaN5b95AlLA&usqp=CAU" alt="Dance performance">
+    <img src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2019/12/15/Pictures/_a94bb050-1f27-11ea-9a53-e5149fe5d3ed.jpg" alt="Stage drama">
+    <img src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/03/07/Pictures/chhatrapati-exhibition-participated-businessman-participated-exhibition-exhibition_58e3fab8-6069-11ea-bcc0-e4d0c7a68e9a.jpg" alt="Project display">
+    <img src="studentenjoy.jpg" alt="Student fun moment">
+  </div>
+</section>
+
+
+
+    </div>
+  </div>
+
+  <!-- Hidden Event Data -->
+  <div id="event-data" style="display: none;">
+    <div id="kalavishkar">
+      <h3>Kalavishkar '26</h3>
+      <p>Annual technical fest featuring student innovations, working models, IoT, and AI-based exhibits showcasing engineering brilliance.</p>
+    </div>
+    <div id="codewar">
+      <h3>CodeWar</h3>
+      <p>Competitive programming showdown where coders battle algorithms in limited time rounds.</p>
+    </div>
+    <div id="debugging">
+      <h3>Debugging Duel</h3>
+      <p>Find and fix intentional bugs in code snippets. Fastest debugger scores highest!</p>
+    </div>
+    <div id="techquiz">
+      <h3>Tech Quiz</h3>
+      <p>Tech trivia for brainiacs — test your knowledge in IT, AI, electronics, and emerging tech.</p>
+    </div>
+    <div id="sports">
+      <h3>Sports '26</h3>
+      <p>Annual sports carnival featuring cricket, football, volleyball, chess, kabaddi and more for all students.</p>
+    </div>
+    <div id="gathering">
+      <h3>Annual Gathering '26 Expo</h3>
+      <p>A mega cultural event with performances, dance, music, drama, fashion show, awards and food stalls.</p>
+    </div>
+    <div id="exhibition">
+      <h3>Exhibition</h3>
+      <p>Explore working models, IoT devices, and AI projects crafted by students.</p>
+    </div>
+    <div id="cultural">
+      <h3>Cultural Performances</h3>
+      <p>Enjoy dances, music, and dramas performed by talented students across departments.</p>
+    </div>
+    <div id="poster">
+      <h3>Poster Making</h3>
+      <p>Creative competition where students express technical awareness through design.</p>
+    </div>
+    <div id="group_singing">
+      <h3>Group Singing</h3>
+      <p>Harmony, rhythm, and enthusiasm in our musical group singing event.</p>
+    </div>
+    <div id="speech">
+      <h3>Speech Contest</h3>
+      <p>Challenge your public speaking skills in this language and expression contest.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri
+    </div>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Events</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+    </div>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p class="footer-copy">&copy; 2025 Govt. Polytechnic Ratnagiri. All Rights Reserved.</p>
+  </div>
+</footer>
+
 
   <script>
+    function toggleMini(el) {
+      el.classList.toggle("active");
+    }
+
+    function showContent(key) {
+      const dataDiv = document.getElementById("event-data").querySelector("#" + key);
+      const content = document.getElementById("content");
+
+      if (!dataDiv) {
+        content.innerHTML = "<p>Details coming soon.</p>";
+        return;
+      }
+
+      const heading = dataDiv.querySelector("h3").textContent;
+      const rest = dataDiv.innerHTML.replace(/<h3.*?<\/h3>/, "");
+
+      content.innerHTML = `<h3 id="typed-heading"></h3>${rest}`;
+
+      const target = document.getElementById("typed-heading");
+      let i = 0;
+      target.style.color = "#00e5ff";
+
+      function typeHeading() {
+        if (i < heading.length) {
+          target.textContent += heading.charAt(i);
+          i++;
+          setTimeout(typeHeading, 60);
+        }
+      }
+
+      typeHeading();
+    }
+
     function toggleEventList() {
       const eventList = document.getElementById('eventList');
-      const eventDetails = document.getElementById('eventDetails');
       eventList.classList.toggle('collapsed');
-      eventDetails.classList.toggle('expanded');
     }
+
+    const typedText = "Welcome to Kalavishkar";
+    const target = document.getElementById("typed-text");
+    let j = 0;
+
+    function typeIntro() {
+      if (j < typedText.length) {
+        target.textContent += typedText.charAt(j);
+        j++;
+        setTimeout(typeIntro, 70);
+      }
+    }
+
+    typeIntro();
   </script>
 </body>
 </html>
