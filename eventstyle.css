@@ -470,3 +470,33 @@ body {
   margin: 0;
   padding-top: 70px; /* adjust to your header height */
 }
+
+/* 🎯 Ticker only on right (not full-width) */
+.content-area .event-ticker {
+  width: 100%;
+  overflow: hidden;
+  background-color: #0c0101;
+  padding: 8px 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  margin-bottom: 20px;
+}
+
+.content-area .ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker-scroll 18s linear infinite;
+  color: #00e5ff;
+  font-weight: 500;
+  font-size: 16px;
+  padding-left: 100%;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

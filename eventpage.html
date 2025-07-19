@@ -18,6 +18,8 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
+   
+
   </header>
 
   <div class="main-container">
@@ -41,6 +43,13 @@
     </aside>
 
     <div class="content-area" id="eventDetails">
+      <!-- 🔁 Right-side scrolling ticker -->
+<div class="event-ticker">
+  <div class="ticker-content" id="tickerText">
+    📣 Upcoming: Sports '26 – Cricket, Football, Kabaddi & more! 🏏⚽🥇 | Kalavishkar '26 – AI Models, Robotics, Culture 🎭🤖 | CodeWar – Battle of Coders 💻🔥
+  </div>
+</div>
+
       <div id="content">
         <div id="typed-text"></div>
         <p> Please stay tuned for updates and announcements about upcoming cultural and technical activities at Govt. Polytechnic Ratnagiri.</p>
@@ -122,7 +131,7 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzDH6X5XZXtAT1RGnw7510T7C3uUHT_afRcUo2Tzt2xNiZw-LA4nrTCOUSaN5b95AlLA&usqp=CAU" alt="Dance performance">
     <img src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2019/12/15/Pictures/_a94bb050-1f27-11ea-9a53-e5149fe5d3ed.jpg" alt="Stage drama">
     <img src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/03/07/Pictures/chhatrapati-exhibition-participated-businessman-participated-exhibition-exhibition_58e3fab8-6069-11ea-bcc0-e4d0c7a68e9a.jpg" alt="Project display">
-    <img src="assests\images\studentenjoy.jpg" alt="Student fun moment">
+    <img src="assets\images\studentenjoy.jpg" alt="Student fun moment">
   </div>
 </section>
 
@@ -253,6 +262,9 @@
     }
 
     typeIntro();
+    document.getElementById("tickerText").textContent =
+  "📢 Upcoming Event: Kalavishkar '26 – A technical and cultural fest with AI/IoT exhibits, coding battles, drama, dance, and more. Save the date!";
+
   </script>
 </body>
 </html>
