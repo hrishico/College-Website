@@ -12,9 +12,9 @@ body {
   display: flex;
   flex-direction: column;
 }
- 
 
 
+/*navigation bar*/
 
 .navbar {
   display: flex;
@@ -52,7 +52,7 @@ body {
   display: flex;
   flex: 1;
 }
-
+/*Sidebar*/
 .sidebar {
   
   width: 260px;
@@ -147,7 +147,7 @@ body {
 .mini-events li:hover {
   color: #00e5ff;
 }
-
+/*Content area*/
 .content-area {
   flex: 1;
   padding: 40px;
@@ -195,6 +195,48 @@ body {
   transition: all 0.3s ease;
 }
 
+.why-attend-section {
+  padding: 50px 20px;
+  background-color: #121212;
+  color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #00e5ff;
+}
+
+.benefits {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.benefit-card {
+  background: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  border-radius: 15px;
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
+}
+
+.benefit-card i {
+  font-size: 2rem;
+  color: #00e5ff;
+  margin-bottom: 10px;
+}
+/*why attend us*/
+
 .why-attend,
 .event-highlights,
 .sponsors,
@@ -218,24 +260,8 @@ body {
   margin-bottom: 15px;
 }
 
-.explore-events {
-  margin-top: 50px;
-  text-align: center;
-}
 
-.explore-events h2 {
-  color: #00e6ff;
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.explore-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
+/*Feature section*/
 .card {
   background: #1a1a1a;
   border-radius: 16px;
@@ -315,7 +341,7 @@ body {
   font-size: 0.95em;
   line-height: 1.5;
 }
-
+/*testimonials section*/
 .event-testimonials {
   text-align: center;
   margin-top: 60px;
@@ -354,7 +380,7 @@ body {
   color: #00e6ff;
   font-style: normal;
 }
-
+/*Photo gallary*/
 .photo-gallery {
   margin-top: 60px;
   text-align: center;
@@ -387,6 +413,7 @@ body {
 .gallery-grid img:hover {
   transform: scale(1.05);
 }
+/*Footer*/
 .site-footer {
   background-color: #222;
   color: #fff;
@@ -438,6 +465,277 @@ body {
   margin-top: 15px;
   color: #aaa;
 }
+/*Side bar collapsed*/
+.sidebar.collapsed {
+  width: 70px;
+  padding: 20px 10px;
+}
+
+.sidebar.collapsed h2 {
+  display: none;
+}
+
+.sidebar.collapsed .event-list li {
+  font-size: 0;
+  text-align: center;
+}
+
+.sidebar.collapsed .event-list li::before {
+  content: "•";
+  font-size: 18px;
+  color: #00e5ff;
+}
+/*Hero Section*/
+.hero-text {
+  text-align: center;
+}
+
+.register-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: #00f2ff;
+  color: #000;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.register-btn:hover {
+  background-color: #00c2cc;
+  transform: scale(1.05);
+}
+
+.hero {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0; /* Enough top/bottom spacing */
+  
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 1.0; 
+}
+.event-ticker {
+  background-color: #040100;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  position: relative;
+  font-weight: bold;
+}
+
+.ticker-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollTicker 20s linear infinite;
+}
+
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/*Event Categories*/
+.event-categories-section {
+  padding: 60px 20px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.event-category-list {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.event-category {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
+}
+
+.event-category i {
+  font-size: 2rem;
+  color: #00e5ff;
+  margin-top: 6px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.event-text h3 {
+  font-size: 1.4rem;
+  color: #00e5ff;
+  margin-bottom: 8px;
+}
+
+.event-text p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+/*News Feed*/
+.modern-news {
+  background-color: #111;
+  color: #f5f5f5;
+  padding: 60px 20px;
+}
+
+.news-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.news-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  border-left: 3px solid #00e5ff;
+  padding-left: 15px;
+  position: relative;
+}
+
+.news-icon {
+  font-size: 1.5rem;
+  color: #00e5ff;
+  flex-shrink: 0;
+  text-shadow: 0 0 5px #00e5ff88;
+}
+
+.news-text h4 {
+  margin: 0;
+  color: #00e5ff;
+  font-size: 1.2rem;
+}
+
+.news-text p {
+  margin: 5px 0 0;
+  color: #ccc;
+  font-size: 1rem;
+}
+/*Testimonials section*/
+.event-testimonials {
+  padding: 60px 20px;
+  background: #f0f0f0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.event-testimonials h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #222;
+}
+
+.testimonial-slider {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  height: auto;
+}
+
+.testimonial-wrapper {
+  display: flex;
+  transition: opacity 1s ease-in-out;
+  will-change: transform;
+}
+
+.testimonial-pair {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.testimonial-pair.active {
+  opacity: 1;
+  position: relative;
+}
+
+.testimonial-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 450px;
+  flex: 1;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border: 3px solid #0077ff;
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #f0f0f0;
+}
+
+.testimonial-card h4 {
+  margin-top: 15px;
+  color: #1ab0d2;
+}
+
+.testimonial-card h4 span {
+  font-size: 0.9em;
+  color: #e8ebee;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .testimonial-pair {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial-card {
+    max-width: 90%;
+  }
+}
+/*Header*/
 header {
   position: fixed;
   top: 0;
@@ -463,40 +761,77 @@ header {
 
 .nav-links li a {
   text-decoration: none;
-  color: #333;
+  color: #eee7e7;
   font-weight: bold;
 }
 body {
   margin: 0;
   padding-top: 70px; /* adjust to your header height */
 }
+.modern-news {
+  padding: 40px 20px;
+}
 
-/* 🎯 Ticker only on right (not full-width) */
-.content-area .event-ticker {
-  width: 100%;
+.modern-news .section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #00e6ff;
+  font-weight: 700;
+}
+/*Gallery slideshow*/
+.auto-memory-gallery {
+  padding: 50px 20px;
+  background-color: #f5f7fa;
+  text-align: center;
+}
+
+.gallery-heading {
+  font-size: 32px;
+  color: #1e293b;
+  margin-bottom: 30px;
+}
+
+.memory-slideshow {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 400px;
+  margin: auto;
   overflow: hidden;
-  background-color: #0c0101;
-  padding: 8px 0;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
-  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.content-area .ticker-content {
-  display: inline-block;
-  white-space: nowrap;
-  animation: ticker-scroll 18s linear infinite;
-  color: #00e5ff;
-  font-weight: 500;
-  font-size: 16px;
-  padding-left: 100%;
+.memory-slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  border-radius: 12px;
+}
+.memory-slideshow {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.memory-slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Make it fill without stretching */
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  border-radius: 12px;
+  z-index: 0;
 }
 
-@keyframes ticker-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}

@@ -6,9 +6,12 @@
   <title>Kalavishkar 2025 - Event Portal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  
+
   <link href="eventstyle.css" rel="stylesheet">
 </head>
 <body>
+  <!--Header Section -->
   <header>
     <nav class="navbar">
       <div class="logo"><i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri</div>
@@ -18,28 +21,31 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-   
-
   </header>
-
+<!--sidebar Section-->
   <div class="main-container">
-    <aside class="sidebar" id="eventList">
+<aside class="sidebar collapsed" id="eventList">
       <div class="sidebar-header">
         <h2>Upcoming Events</h2>
-        <button onclick="toggleEventList()"><i class="fas fa-bars"></i></button>
+       <button id="sidebarToggle" class="sidebar-toggle" onclick="toggleEventList()">
+  <i class="fas fa-bars"></i>
+</button>
+
+
       </div>
       <ul class="event-list">
-        <li onclick="toggleMini(this); showContent('kalavishkar')">
-          Kalavishkar '26
-          <ul class="mini-events">
-            <li onclick="event.stopPropagation(); showContent('codewar')">CodeWar</li>
-            <li onclick="event.stopPropagation(); showContent('debugging')">Debugging Duel</li>
-            <li onclick="event.stopPropagation(); showContent('techquiz')">Tech Quiz</li>
-          </ul>
-        </li>
-        <li onclick="showContent('sports')">Sports '26</li>
-        <li onclick="showContent('gathering')">Annual Gathering '26 Expo</li>
-      </ul>
+  <li onclick="toggleMini(this); showContent('kalavishkar')">
+    Kalavishkar '26
+    <ul class="mini-events">
+      <li onclick="event.stopPropagation(); showContent('codewar')">CodeWar</li>
+      <li onclick="event.stopPropagation(); showContent('debugging')">Debugging Duel</li>
+      <li onclick="event.stopPropagation(); showContent('techquiz')">Tech Quiz</li>
+    </ul>
+  </li>
+  <li onclick="showContent('sports')">Sports '26</li>
+  <li onclick="showContent('gathering')">Annual Gathering '26 Expo</li>
+</ul>
+
     </aside>
 
     <div class="content-area" id="eventDetails">
@@ -48,18 +54,73 @@
   <div class="ticker-content" id="tickerText">
     📣 Upcoming: Sports '26 – Cricket, Football, Kabaddi & more! 🏏⚽🥇 | Kalavishkar '26 – AI Models, Robotics, Culture 🎭🤖 | CodeWar – Battle of Coders 💻🔥
   </div>
-</div>
+</div> 
+<!--  Hero Section with Traditional Background Video -->
+      <section class="hero">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="assets/tradtional.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-      <div id="content">
-        <div id="typed-text"></div>
-        <p> Please stay tuned for updates and announcements about upcoming cultural and technical activities at Govt. Polytechnic Ratnagiri.</p>
+  <div class="content">
+    <div class="hero-text">
+      <h1 id="typed-text"></h1>
+      <a href="#register" class="register-btn">Register Now</a>
+    </div>
+  </div>
+</section>
+
+<!--Why Attend Us Section-->
+      <section class="why-attend-section">
+  <h2 class="section-title">Why Attend Kalavishkar?</h2>
+  <div class="benefits">
+    <div class="benefit-card">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Innovative Events</h3>
+      <p>Challenge your technical & creative limits through competitions and exhibitions.</p>
+    </div>
+    <div class="benefit-card">
+      <i class="fas fa-users"></i>
+      <h3>Networking</h3>
+      <p>Meet brilliant minds, build connections, and grow your future prospects.</p>
+    </div>
+    <div class="benefit-card">
+      <i class="fas fa-award"></i>
+      <h3>Recognition</h3>
+      <p>Showcase your talent and get rewarded by professionals and faculty.</p>
+    </div>
+  </div>
+</section>
+<!--Event Categories Section-->
+<section class="event-categories-section">
+  <h2 class="section-title">Event Categories</h2>
+  <div class="event-category-list">
+    <div class="event-category">
+      <i class="fas fa-microchip"></i>
+      <div class="event-text">
+        <h3>Technical</h3>
+        <p>CodeWar, Debugging Duel, Robotics, Tech Quiz, and Project Exhibition to ignite your technical passion.</p>
       </div>
+    </div>
 
-      <!-- Why Attend Section -->
-      <section class="why-attend">
-        <h2>Why Attend Our Events?</h2>
-        <p>Our events foster creativity, technical excellence and cultural unity!</p>
-      </section>
+    <div class="event-category">
+      <i class="fas fa-theater-masks"></i>
+      <div class="event-text">
+        <h3>Cultural</h3>
+        <p>Singing, Dancing, Drama, Mehendi, Rangoli, and Poster Making that showcase creativity and tradition.</p>
+      </div>
+    </div>
+
+    <div class="event-category">
+      <i class="fas fa-futbol"></i>
+      <div class="event-text">
+        <h3>Sports</h3>
+        <p>Cricket, Football, Kabaddi, Chess, Carrom, and Track & Field — for the spirit of competition and fun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <!-- Event Highlights Section -->
       <section class="featured-events">
@@ -79,63 +140,103 @@
     </div>
   </div>
 </section>
-
-
-
-      <!-- Additional Event Sections -->
-      <section class="explore-events">
-  <h2>Explore More Events</h2>
-  <div class="explore-cards">
-    <div class="card">
-      <h3>Poster Making</h3>
-      <p>Creative competition to showcase technical themes through art.</p>
+<!--Announcement Section-->
+<section class="modern-news">
+  <h2 class="section-title">📢 Announcements & Updates</h2>
+  <div class="news-feed">
+    <div class="news-entry">
+      <span class="news-icon">📅</span>
+      <div class="news-text">
+        <h4>CodeWar Registration Begins</h4>
+        <p>Starts from <strong>1st Feb 2025</strong>. Limited seats — register now!</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Group Singing</h3>
-      <p>Melodious harmony from various departments performing together.</p>
+
+    <div class="news-entry">
+      <span class="news-icon">🎭</span>
+      <div class="news-text">
+        <h4>Cultural Night Auditions</h4>
+        <p>Be part of the magic! Auditions on <strong>15th Feb</strong> in Room 201.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Speech Contest</h3>
-      <p>Showcase your thoughts with impactful public speaking skills.</p>
-    </div>
-    <div class="card">
-      <h3>Cultural Performances</h3>
-      <p>Diverse dance and drama performances by talented students.</p>
+
+    <div class="news-entry">
+      <span class="news-icon">⚡</span>
+      <div class="news-text">
+        <h4>Tech Quiz Format Update</h4>
+        <p>New Rapid Fire round added for more excitement! Updated rules online.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!--testimonials section-->
+
+      <!--Testimonials Section-->
 <section class="event-testimonials">
-  <h2>What Students Say</h2>
-  <div class="testimonial-cards">
-    <div class="testimonial-card">
-      <p>"Kalavishkar was an unforgettable experience! Loved the vibe, energy, and opportunities."</p>
-      <h4>- Sarvesh, Computer Dept.</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"From tech exhibitions to cultural night, it brought the whole campus together beautifully."</p>
-      <h4>- Atharv, Mechanical Dept.</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"I performed on stage for the first time—so many memories and confidence gained!"</p>
-      <h4>- Prasad, ENTC Dept.</h4>
+  <h2 class="section-title">What Professors Say</h2>
+  <div class="testimonial-slider" id="testimonialSlider">
+    <div class="testimonial-wrapper">
+
+      <!-- Set 1 -->
+<div class="testimonial-pair">
+  <div class="testimonial-card">
+    <img src="https://www.monmouth.edu/directory/wp-content/uploads/sites/476/2021/07/Dean-Raj-Devasagayam-Edited_20211115_AD_03.jpg" alt="Prof. Patil" />
+    <p>"Kalavishkar empowers students to explore, innovate, and express themselves creatively."</p>
+    <h4>Prof. A. Patil<br><span>HOD, Computer Department</span></h4>
+  </div>
+  <div class="testimonial-card">
+    <img src="https://static.toiimg.com/thumb/msid-122385691,imgsize-1598921,width-400,height-225,resizemode-72/122385691.jpg" alt="Prof. Desai" />
+    <p>"Students come alive here — from planning to performance, they own every stage."</p>
+    <h4>Prof. S. Desai<br><span>Coordinator, Cultural Events</span></h4>
+  </div>
+</div>
+
+<!-- Set 2 -->
+<div class="testimonial-pair">
+  <div class="testimonial-card">
+    <img src="data:image/jpeg;base64,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" alt="Prof. Naik" />
+    <p>"Events like Kalavishkar teach students leadership, ownership, and creative execution skills."</p>
+    <h4>Prof. R. Naik<br><span>Event Jury Member</span></h4>
+  </div>
+  <div class="testimonial-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvqFf8Ss908OM39wt_bQwhldiJ1IGmUGVAng&s" alt="Prof. Zore" />
+    <p>"It’s more than just events — it’s transformation through experience and exposure."</p>
+    <h4>Prof. S. Zore<br><span>Staff Advisor</span></h4>
+  </div>
+</div>
+
+<!-- Set 3 -->
+<div class="testimonial-pair">
+  <div class="testimonial-card">
+    <img src="data:image/jpeg;base64,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" alt="Prof. Joshi" />
+    <p>"Every year, students surprise us with their talent and commitment to excellence."</p>
+    <h4>Prof. M. Joshi<br><span>Faculty, ENTC Dept.</span></h4>
+  </div>
+  <div class="testimonial-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo9O651fqTquG-Pt6myEQdHq8Ki8xeV6S9SA&s" alt="Prof. Kale" />
+    <p>"Kalavishkar brings out the best in our students — discipline, teamwork, and vision."</p>
+    <h4>Prof. V. Kale<br><span>Mentor, Mechanical Dept.</span></h4>
+  </div>
+</div>
+
     </div>
   </div>
 </section>
+
+
+
 
 <!--Photo Gallery-->
-<section class="photo-gallery">
-  <h2>Glimpses of Past Events</h2>
-  <div class="gallery-grid">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzDH6X5XZXtAT1RGnw7510T7C3uUHT_afRcUo2Tzt2xNiZw-LA4nrTCOUSaN5b95AlLA&usqp=CAU" alt="Dance performance">
-    <img src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2019/12/15/Pictures/_a94bb050-1f27-11ea-9a53-e5149fe5d3ed.jpg" alt="Stage drama">
-    <img src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/03/07/Pictures/chhatrapati-exhibition-participated-businessman-participated-exhibition-exhibition_58e3fab8-6069-11ea-bcc0-e4d0c7a68e9a.jpg" alt="Project display">
-
-    <img src="assets\images\studentenjoy.jpg" alt="Student fun moment">
-
+<section class="auto-memory-gallery">
+  <h2 class="gallery-heading">📸 Glimpses of Past Events</h2>
+  <div class="memory-slideshow" id="memorySlideshow">
+    <img src="https://img.freepik.com/premium-photo/slow-motion-moves-collage-with-young-men-men-break-dance-hip-hop-dancers-dancing-isolated-multicolored-background-neon-mixed-light-youth-culture_1028938-479959.jpg" alt="Dance">
+    <img src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2019/12/15/Pictures/_a94bb050-1f27-11ea-9a53-e5149fe5d3ed.jpg" alt="Drama">
+    <img src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/03/07/Pictures/chhatrapati-exhibition-participated-businessman-participated-exhibition-exhibition_58e3fab8-6069-11ea-bcc0-e4d0c7a68e9a.jpg" alt="Project">
+    <img src="assets/images/studentenjoy.jpg" alt="Fun Moment">
   </div>
 </section>
+
 
 
 
@@ -211,7 +312,7 @@
   </div>
 </footer>
 
-
+<!--Toggle Button-->
   <script>
     function toggleMini(el) {
       el.classList.toggle("active");
@@ -246,11 +347,13 @@
       typeHeading();
     }
 
-    function toggleEventList() {
-      const eventList = document.getElementById('eventList');
-      eventList.classList.toggle('collapsed');
-    }
+  function toggleEventList() {
+  const eventList = document.getElementById('eventList');
+  eventList.classList.toggle('collapsed');
+}
 
+
+//typewriter
     const typedText = "Welcome to Kalavishkar";
     const target = document.getElementById("typed-text");
     let j = 0;
@@ -264,9 +367,46 @@
     }
 
     typeIntro();
-    document.getElementById("tickerText").textContent =
-  "📢 Upcoming Event: Kalavishkar '26 – A technical and cultural fest with AI/IoT exhibits, coding battles, drama, dance, and more. Save the date!";
 
+   
   </script>
+  <!--Auto swap-->
+ <script>
+  const pairs = document.querySelectorAll(".testimonial-pair");
+  let current = 0;
+
+  function showPair(index) {
+    pairs.forEach((pair, i) => {
+      pair.classList.toggle("active", i === index);
+    });
+  }
+
+  showPair(current); // Initial show
+
+  setInterval(() => {
+    current = (current + 1) % pairs.length;
+    showPair(current);
+  }, 5000);
+</script>
+<!--Auto change-->
+<script>
+  const images = document.querySelectorAll('#memorySlideshow img');
+  let index = 0;
+
+  function showImage(i) {
+    images.forEach((img, idx) => {
+      img.style.opacity = idx === i ? 1 : 0;
+    });
+  }
+
+  function startSlideshow() {
+    showImage(index);
+    index = (index + 1) % images.length;
+  }
+
+  setInterval(startSlideshow, 3000); 
+  window.onload = () => showImage(index);
+</script>
+
 </body>
 </html>
