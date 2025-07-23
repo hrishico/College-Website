@@ -834,4 +834,15 @@ body {
   border-radius: 12px;
   z-index: 0;
 }
+.event-category-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.event-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 700px; /* or any width that looks good */
+}
 
