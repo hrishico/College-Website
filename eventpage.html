@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   
 
-  <link href="eventstyle.css" rel="stylesheet">
+  <link href="css/eventstyle.css" rel="stylesheet">
 </head>
 <body>
   <!--Header Section -->
@@ -19,6 +19,7 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">Events</a></li>
         <li><a href="#">Contact</a></li>
+        <li><a href="#">Sign Up</a></li>
       </ul>
     </nav>
   </header>
@@ -28,22 +29,21 @@
       <div class="sidebar-header">
         <h2>Upcoming Events</h2>
        <button id="sidebarToggle" class="sidebar-toggle" onclick="toggleEventList()">
-  <i class="fas fa-bars"></i>
-</button>
-
-
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
       <ul class="event-list">
   <li onclick="toggleMini(this); showContent('kalavishkar')">
     Kalavishkar '26
     <ul class="mini-events">
       <li onclick="event.stopPropagation(); showContent('codewar')">CodeWar</li>
-      <li onclick="event.stopPropagation(); showContent('debugging')">Debugging Duel</li>
+      <li onclick="event.stopPropagation(); showContent('Robo')">Robot Show</li>
       <li onclick="event.stopPropagation(); showContent('techquiz')">Tech Quiz</li>
     </ul>
   </li>
   <li onclick="showContent('sports')">Sports '26</li>
   <li onclick="showContent('gathering')">Annual Gathering '26 Expo</li>
+  <li onclick="showContent('Fest')">Music Fest</li>
 </ul>
 
     </aside>
