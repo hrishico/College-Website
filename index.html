@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <i class="fas fa-envelope me-2"></i> gpr.edu@info 
-                    <i class="fas fa-phone ms-3 me-2"></i> +91 (123) 456-7890
+                    <i class="fas fa-phone ms-3 me-2"></i> 02352-222203
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#"><i class="fas fa-sign-in-alt me-1"></i> Student Portal</a>
@@ -54,7 +54,7 @@
                         <a class="nav-link" href="#campus-section">Campus Life</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="eventpage.html" target="_blank">Events</a>
+                        <a class="nav-link" href="#event-section">Events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact-section">Contact</a>
@@ -99,7 +99,7 @@
                 <h4 class="fw-bold mb-0">XYZ</h4>
                 <small class="text-muted">(Principal of GPR)</small>
                 </div>
-                <a href="#" class="btn btn-warning px-4 py-2 fw-bold">Explore more</a>
+                <a href="eventpage.html" class="btn btn-warning px-4 py-2 fw-bold">Explore more</a>
             </div>
             </div>
         </div>
@@ -283,7 +283,7 @@
         </div>
     </div>
     </section>
-    <section class="events-section py-5 bg-light">
+    <section class="events-section py-5 bg-light" id="event-section">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
@@ -377,7 +377,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <!-- Slider Dots -->
                 <div class="slider-dots text-center mt-4">
                     <button class="dot active" aria-label="Slide 1"></button>
@@ -387,6 +387,197 @@
             </div>
         </div>
     </section>
+    <div class="container py-5" id="contact-section">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">Contact Us</h1>
+            <p class="lead text-muted">Have any questions regarding our institute? Get in touch with our team</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Office Location Card -->
+            <div class="col-md-4">
+                <div class="contact-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-map-marker-alt fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="card-title">Our Adress</h3>
+                        <address class="card-text">
+                            GP, Ratnagiri, Near Thiba palace Road, Ratnagiri.<br>
+                            Pin Code 415 612
+                        </address>
+                        <button class="btn btn-outline-primary mt-3">
+                            View on Map
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="col-md-4">
+                <div class="contact-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-envelope fa-3x text-danger"></i>
+                        </div>
+                        <h3 class="card-title">Email Us</h3>
+                        <div class="card-text">
+                            <a href="mailto:contact@college.com" class="d-block mb-2"> principal_gpr@rediffmail.com</a>
+                            <a href="mailto:press@college.com" class="d-block">collegeuni@gmail.com</a>
+                        </div>
+                        <button class="btn btn-outline-danger mt-3" data-bs-toggle="modal" data-bs-target="#emailModal">
+                            Send Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Media Card -->
+            <div class="col-md-4">
+                <div class="contact-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-house-laptop fa-3x text-info"></i>
+                        </div>
+                        <h3 class="card-title">Social Media</h3>
+                        <div class="card-text">
+                            <div class="d-flex justify-content-center mt-4">
+                                <a href="#" class="social-icon text-twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon text-youtube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="social-icon text-facebook">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-icon text-instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-info mt-4" data-bs-toggle="modal" data-bs-target="#socialModal">
+                            Follow Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="row mt-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h2 class="text-center mb-4">Quick Contact Form</h2>
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            Subscribe to our newsletter
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary px-4 py-2">
+                                        <i class="fas fa-paper-plane me-2"></i> Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Footer Section -->
+    <footer class="college-footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Column -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-logo">GPR University</div>
+                    <p class="footer-description">
+                        Well established infrastructure facilities are key factors for positive performances. The faculty members are well qualified, experienced & well trained under NITTTR courses & other personality development courses
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fa-solid fa-school"></i> Home</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i> About Us</a></li>
+                        <li><a href="#"><i class="fa-solid fa-graduation-cap"></i> Academic</a></li>
+                        <li><a href="#"><i class="fa-solid fa-building"></i> Campus Life</a></li>
+                        <li><a href="#"><i class="fa-solid fa-calendar"></i> Events</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories Column -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-heading">Departments</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-atom me-2"></i> Science & Engineering</a></li>
+                        <li><a href="#"><i class="fas fa-book me-2"></i> Humanities</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line me-2"></i> Business</a></li>
+                        <li><a href="#"><i class="fas fa-heartbeat me-2"></i> Health Sciences</a></li>
+                        <li><a href="#"><i class="fas fa-laptop-code me-2"></i> Computer Science</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> GP Ratnagiri, Near Thiba palace Road, Ratnagiri.</p>
+                        <p><i class="fas fa-envelope me-2"></i> <a href="mailto:principal_gpr@rediffmail.com">principal_gpr@rediffmail.com</a></p>
+                        <p><i class="fas fa-phone me-2"></i> <a href="tel:+11234567890">02352-222203</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="copyright">© Copyright <strong>GPR University</strong>. All Rights Reserved</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <p class="designer">Designed by <a href="#">XYZ</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
     <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- jQuery -->

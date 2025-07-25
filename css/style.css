@@ -271,3 +271,162 @@
     height: 300px;    
     object-fit: cover; 
 }
+.contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.social-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: transform 0.2s ease;
+}
+.social-icon:hover {
+    transform: scale(1.2);
+}
+.college-footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 3rem 0 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        .footer-description {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .footer-heading {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            opacity: 1;
+            padding-left: 5px;
+        }
+        .contact-info {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        .contact-info a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
+        .social-icons {
+            margin-top: 1.5rem;
+        }
+        .social-icons a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        .designer {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        .designer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--light-color);
+        }
+        .newsletter-btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            font-weight: 600;
+        }
+        .newsletter-btn:hover {
+            background-color: var(--light-color);
+        }
+        .newsletter-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--light-color);
+        }
+        .newsletter-input:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--light-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(230, 169, 25, 0.25);
+        }
