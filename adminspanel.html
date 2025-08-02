@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login | Kalavishkar 2025</title>
+
+  <!-- Fonts -->
+   <link href="css\eventstyle.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Prompt&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Prompt', sans-serif;
+    color: white;
+  }
+
+  .logindiv {
+    width: 300px;
+    margin: 100px auto;
+    padding: 30px 20px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+    text-align: center;
+  }
+
+  .logindiv h2 {
+    color: #00e5ff;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .logindiv input[type="text"],
+  .logindiv input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #111;
+    border: 1px solid #00e5ff;
+    border-radius: 6px;
+    color: #00e5ff;
+    font-size: 14px;
+  }
+
+  .logindiv input::placeholder {
+    color: #00e5ff99;
+  }
+
+  .logindiv button {
+    padding: 10px 20px;
+    margin: 8px 5px;
+    border: none;
+    border-radius: 6px;
+    background-color: #00e5ff;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    
+  }
+
+  .logindiv button.forgot {
+    background-color: #444;
+    color: #ccc;
+  }
+
+  .logindiv button:hover {
+    opacity: 0.85;
+  }
+
+  header {
+    margin-bottom: 40px;
+  }
+</style>
+
+</head>
+  <body>
+
+
+      <header>
+      <nav class="navbar">
+        <div class="logo"><i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="events.html">Admin Panel</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="registration.html" class="active">Register</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <div class="logindiv">
+
+      <h2>Admin Registration</h2>
+      
+      <input type="text" name="adminname" placeholder="Admin Name" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      
+      <button type="button" class="forgot">Forgot Password?</button><br><br>
+      <button>Login</button>
+    
+    </div>
+
+  </body>
+</html>
