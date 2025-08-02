@@ -41,24 +41,14 @@ document.getElementById('eventCategory').addEventListener('change', function() {
             option.textContent = event;
             specificEvent.appendChild(option);
         });
-    } else if (this.value === 'workshop') {
-        const events = ['AI Workshop', 'Blockchain', 'Cloud Computing', 'Cybersecurity'];
+    } else if (this.value === 'sports') {
+        const events = ['Football', 'Cricket', 'Chess', 'Volleyball'];
         events.forEach(event => {
             const option = document.createElement('option');
             option.value = event.toLowerCase().replace(' ', '-');
             option.textContent = event;
             specificEvent.appendChild(option);
         });
-    }
-});
-
-// Show card details when credit/debit is selected
-document.getElementById('paymentMethod').addEventListener('change', function() {
-    const cardDetails = document.getElementById('cardDetails');
-    if (this.value === 'credit' || this.value === 'debit') {
-        cardDetails.style.display = 'block';
-    } else {
-        cardDetails.style.display = 'none';
     }
 });
 
