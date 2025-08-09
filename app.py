@@ -24,7 +24,7 @@ def event():
 def admin_panel():
     return render_template("adminspanel.html")
 
-@app.route('/login', methods=['POST'])
+@app.route('/Adminstool', methods=['POST'])
 def login():
     username = request.form['username']
     password = request.form['password']
@@ -35,7 +35,7 @@ def login():
     result = cursor.fetchone()
 
     if result:
-        return "<h1>Login Successful! Welcome, Admin.</h1>"
+        return render_template("Admintools.html")
     else:
         return "<h1>Login Failed. Invalid credentials.</h1>"
     
