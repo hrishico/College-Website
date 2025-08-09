@@ -8,6 +8,10 @@ create table admins_info (
     password varchar(15),
     email varchar(50)
 );
+ALTER TABLE admins_info
+ADD CONSTRAINT unique_name UNIQUE (name),
+ADD CONSTRAINT unique_email UNIQUE (email);
+
 
 CREATE TABLE event_info (
     event_id int auto_increment primary key,
@@ -31,5 +35,10 @@ VALUES ('Sarvesh Navale', '9763772464', 'password#123', 'sarveshnavale@gmail.com
 ('Sarvesh Morgoankar', '9828742212', 'password#123', 'sarveshmorgoankar@gmail.com'),
 ('Hrishikesh Patil', '9896442212', 'password#123', 'hrishi@gmail.com');
 
+ALTER TABLE registered_students
+ADD COLUMN reg_category VARCHAR(50) AFTER reg_event;
+
+ALTER TABLE registered_students
+DROP COLUMN reg_category;
 
 
