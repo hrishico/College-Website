@@ -20,6 +20,10 @@ def home():
 def event():
     return render_template("eventpage.html")
 
+@app.route('/register')
+def register_page():
+    return render_template("registration.html")
+
 @app.route('/admin')
 def admin_panel():
     return render_template("adminspanel.html")

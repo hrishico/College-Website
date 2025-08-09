@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- Your existing CSS -->
-    <link href="css/eventstyle.css" rel="stylesheet">
+    <link href="static/eventstyle.css" rel="stylesheet">
     <style>
         /* Responsive additions */
         @media (max-width: 992px) {
@@ -117,28 +117,7 @@
 
     <!-- Main Content -->
     <div class="main-container">
-        <!-- Responsive Sidebar -->
-        <aside class="sidebar collapsed" id="eventList">
-            <div class="sidebar-header">
-                <h2>Upcoming Events</h2>
-                <button id="sidebarToggle" class="sidebar-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-            <ul class="event-list">
-                <li class="event-parent">
-                    Kalavishkar '26
-                    <ul class="mini-events">
-                        <li>CodeWar</li>
-                        <li>Robot Show</li>
-                        <li>Tech Quiz</li>
-                    </ul>
-                </li>
-                <li>Sports '26</li>
-                <li>Annual Gathering '26 Expo</li>
-                <li>Music Fest</li>
-            </ul>
-        </aside>
+        
 
         <!-- Registration Form -->
         <div class="content-area">
@@ -176,20 +155,18 @@
                                 <div class="mb-4">
                                     <h3 class="mb-3" style="color: #00e5ff; border-bottom: 1px solid #333; padding-bottom: 8px;">Event Selection</h3>
                                     <div class="mb-3">
-                                        <label class="form-label">Select Event Category</label>
+                                        <label class="form-label">Select Event</label>
                                         <select class="form-select bg-dark text-white border-secondary" id="eventCategory" required>
                                             <option value="" selected disabled>Choose category...</option>
-                                            <option value="technical">Technical Events</option>
-                                            <option value="cultural">Cultural Events</option>
-                                            <option value="sports">Sports</option>
+                                            <option>Chess</option>
+                                            <option>Football</option>
+                                            <option>Kabaddi</option>
+                                            <option>Carrom</option>
+                                            <option>Track & Field</option>
+                                            
                                         </select>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Select Specific Event</label>
-                                        <select class="form-select bg-dark text-white border-secondary" id="specificEvent" required disabled>
-                                            <option value="" selected disabled>First select a category</option>
-                                        </select>
-                                    </div>
+                                    
                                     <div class="mb-3">
                                         <label class="form-label">Team Members (if team event)</label>
                                         <textarea class="form-control bg-dark text-white border-secondary" id="teamMembers" rows="2" placeholder="Enter names of team members separated by commas"></textarea>
