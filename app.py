@@ -24,6 +24,14 @@ def event():
 def register_page():
     return render_template("registration.html")
 
+@app.route('/sport')
+def sport_event():
+    return render_template("sportevent.html")
+
+@app.route('/gatherings')
+def Gathering_page():
+    return render_template("gathering.html")
+
 @app.route('/admin')
 def admin_panel():
     return render_template("adminspanel.html")
