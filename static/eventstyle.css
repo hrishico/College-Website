@@ -417,11 +417,12 @@ body {
     justify-content: center;
     gap: 30px;
     background: linear-gradient(145deg, #2e1a46, #3d2660);
+    background-color: #d8b4fe;
 
 }
 
 .testimonial-card {
-    background: linear-gradient(145deg, #2e1a46, #3d2660);
+    background: linear-gradient(145deg, #2e1a46, #3d2660) !important;
     padding: 20px;
     width: 280px;
     border-radius: 12px;
@@ -430,6 +431,8 @@ body {
     font-style: italic;
     position: relative;
 }
+
+
 
 .testimonial-card h4 {
     margin-top: 15px;
@@ -474,9 +477,9 @@ body {
 
 /* Footer */
 .site-footer {
-    background-color: #222;
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a); /* subtle gradient */
     color: #fff;
-    padding: 30px 20px;
+    padding: 40px 20px;
     text-align: center;
     margin-top: 40px;
     font-family: 'Roboto', sans-serif;
@@ -488,10 +491,10 @@ body {
 }
 
 .footer-logo {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 12px;
     font-weight: bold;
-    color:#c296f0;
+    color: #c296f0;
 }
 
 .footer-links {
@@ -500,29 +503,37 @@ body {
 
 .footer-links a {
     color: #ccc;
-    margin: 0 10px;
+    margin: 0 12px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-links a:hover {
     color: #c296f0;
+    transform: translateY(-2px);
 }
 
 .footer-social a {
     color: #ccc;
-    margin: 0 8px;
-    font-size: 18px;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-social a:hover {
     color: #c296f0;
+    transform: scale(1.2);
 }
 
 .footer-copy {
     font-size: 13px;
-    margin-top: 15px;
+    margin-top: 20px;
     color: #aaa;
+    width: 100%; /* safer than 100vw */
+    text-align: center !important; /* force centering */
+    display: block;
+    float: none;
 }
 
 /* Sidebar Collapsed */
@@ -971,3 +982,5 @@ body {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
+        .font-orbitron { font-family: 'Orbitron', monospace; }
+        
