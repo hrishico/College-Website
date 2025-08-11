@@ -53,22 +53,7 @@ function typeIntro() {
 }
 
 typeIntro();
-//Auto Swap
-const pairs = document.querySelectorAll(".testimonial-pair");
-let current = 0;
 
-function showPair(index) {
-pairs.forEach((pair, i) => {
-    pair.classList.toggle("active", i === index);
-});
-}
-
-showPair(current); // Initial show
-
-setInterval(() => {
-current = (current + 1) % pairs.length;
-showPair(current);
-}, 5000);
 //Auto Change
 const images = document.querySelectorAll('#memorySlideshow img');
 let index = 0;
