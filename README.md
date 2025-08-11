@@ -42,4 +42,9 @@ The idea is to create a central place where students can:
 ---
 
 ## 📂 Folder Structure
-
+|-static
+|     -contains all the css and assets
+|-templates
+|     -contains all the html files
+|-js
+|     -contains all the js files
