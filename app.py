@@ -21,7 +21,7 @@ def event():
     return render_template("eventpage.html")
 
 @app.route('/register')
-def register_page():
+def register_page_load():
     return render_template("registration.html")
 
 @app.route('/sport')
@@ -39,6 +39,36 @@ def admin_panel():
 @app.route('/schedule')
 def schedule_page():
     return render_template("schedule.html")
+
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register_page():
+    if request.method == 'POST':
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        student_email = request.form['student_email']
+        phone_no = request.form['phone_no']
+        transaction_status = request.form['transaction_status']
+        reg_event = request.form['reg_event']
+
+        cursor = db.cursor()
+        query = """
+            INSERT INTO registered_students
+            (first_name, last_name, student_email, phone_no, transaction_status, reg_event)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """
+        values = (first_name, last_name, student_email, phone_no, transaction_status, reg_event)
+        cursor.execute(query, values)
+        db.commit()
+
+        return "<h1>Registration successful!</h1>"
+
+    return render_template("registration.html")
+
+
+
+
 
 @app.route('/Adminstool', methods=['POST'])
 def login():
