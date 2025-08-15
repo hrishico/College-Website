@@ -8,7 +8,7 @@ app = Flask(__name__)
 db = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="#SAR1807",
+    password="hrishi@123",
     database="college_event"
 )
 
@@ -35,6 +35,10 @@ def Gathering_page():
 @app.route('/admin')
 def admin_panel():
     return render_template("adminspanel.html")
+
+@app.route('/schedule')
+def schedule_page():
+    return render_template("schedule.html")
 
 @app.route('/Adminstool', methods=['POST'])
 def login():
