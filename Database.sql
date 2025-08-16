@@ -53,5 +53,6 @@ DROP COLUMN reg_category;
 select * from admins_info;
 
 /*error might occur in below line because iam directly using truncate here*/
+/* if error related to index out of bound, restart the  device (for truncate)*/
 
-truncate table registered_students;
+truncate table college_event.registered_students;
