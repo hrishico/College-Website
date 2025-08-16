@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
     <style>
-    
-        body {
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
             background-color: black;
             font-family: 'Prompt', sans-serif;
             color: white;
+            overflow-y: auto;   /* ✅ Enable scrolling */
         }
 
         header {
@@ -55,6 +56,7 @@
             color: #c296f0;
             margin-right: 8px;
         }
+
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
 
         .font-orbitron { font-family: 'Orbitron', monospace; }
@@ -62,7 +64,6 @@
         .glow-text {
             text-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6;
         }
-        
     </style>
 </head>
 <body>
@@ -81,29 +82,15 @@
     </header>
 
     <div class="contact-container">
-    <h2 style="color:#c296f0;" class="font-orbitron glow-text">Admin Contact Details</h2>
+        <h2 style="color:#c296f0;" class="font-orbitron glow-text">Admin Contact Details</h2>
 
-    <div class="contact-card">
-        <h3 class="font-orbitron"> Sarvesh Navale</h3>
-        <p><i class="fa-solid fa-building"></i> Department: Computer Engineering</p>
-        <p><i class="fa-solid fa-phone"></i> 9763772464</p>
-        <p><i class="fa-solid fa-envelope"></i> sarveshnavale@gmail.com</p>
-    </div>
-
-    <div class="contact-card">
-        <h3 class="font-orbitron"> Sarvesh Morgaonkar</h3>
-        <p><i class="fa-solid fa-building"></i> Department: Computer Engineering</p>
-        <p><i class="fa-solid fa-phone"></i> +91 7588744985</p>
-        <p><i class="fa-solid fa-envelope"></i> sarveshmorgaonkar@gmail.com</p>
-    </div>
-
-    <div class="contact-card">
-        <h3 class="font-orbitron"> Hrishi Patil</h3>
-        <p><i class="fa-solid fa-building"></i> Department: Computer Engineering</p>
-        <p><i class="fa-solid fa-phone"></i> +91 9876543212</p>
-        <p><i class="fa-solid fa-envelope"></i> hrishipatil@gmail.com</p>
-    </div>
-
+        {% for admin in admins %}
+        <div class="contact-card">
+            <h3 class="font-orbitron">{{ admin.name }}</h3>
+            <p><i class="fa-solid fa-phone"></i> {{ admin.ph_no }}</p>
+            <p><i class="fa-solid fa-envelope"></i> {{ admin.email }}</p>
+        </div>
+        {% endfor %}
     </div>
 
 </body>

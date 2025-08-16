@@ -42,6 +42,8 @@ ADD CONSTRAINT unique_phone_no UNIQUE (phone_no);
 INSERT INTO admins_info (name, ph_no, password, email)
 VALUES ('Sarvesh Navale', '9763772464', 'password#123', 'sarveshnavale@gmail.com'),
 ('Sarvesh Morgoankar', '9828742212', 'password#123', 'sarveshmorgoankar@gmail.com'),
+('Shreyash Khot', '9818742212', 'password#123', 'shreyashkhot@gmail.com'),
+('Sidhesh Mohite', '9818742212', 'password#123', 'sm@gmail.com'),
 ('Hrishikesh Patil', '9896442212', 'password#123', 'hrishi@gmail.com');
 
 ALTER TABLE registered_students

@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file
 import mysql.connector
 
-
 app = Flask(__name__)
 
-
+# Database connection
 db = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -21,9 +20,14 @@ def event():
     return render_template("eventpage.html")
 
 @app.route('/contact')
-def cantact():
-    return render_template("contact.html")
+def contact():
+    cursor = db.cursor(dictionary=True)
+    query = "SELECT name, ph_no, email FROM admins_info"
+    cursor.execute(query)
+    admins = cursor.fetchall()
+    cursor.close()
 
+    return render_template("contact.html", admins=admins)
 
 @app.route('/techquiz')
 def techquiz():
@@ -53,8 +57,6 @@ def admin_panel():
 def schedule_page():
     return render_template("schedule.html")
 
-
-
 @app.route('/register', methods=['GET', 'POST'])
 def register_page():
     if request.method == 'POST':
@@ -79,10 +81,6 @@ def register_page():
 
     return render_template("registration.html")
 
-
-
-
-
 @app.route('/Adminstool', methods=['POST'])
 def login():
     username = request.form['username']
@@ -97,6 +95,6 @@ def login():
         return render_template("Admintools.html")
     else:
         return "<h1>Login Failed. Invalid credentials.</h1>"
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
