@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code War 2025 - Govt. Polytechnic Ratnagiri</title>
+    <link rel="stylesheet" href="eventstyle.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+       /* ===========================
+   Fonts & Base Styles
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(13, 21, 18);
+    color: white;
+    line-height: 1.6;
+}
+
+/* ===========================
+   Font Classes
+=========================== */
+.font-orbitron {
+    font-family: 'Orbitron', monospace;
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===========================
+   Glow Text
+=========================== */
+.glow-text {
+    text-shadow: 0 0 10px #8b5cf6,
+                 0 0 20px #8b5cf6,
+                 0 0 30px #8b5cf6;
+}
+
+/* ===========================
+   Fade-Up Animation
+=========================== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===========================
+   Matrix Background (optional)
+=========================== */
+.matrix-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.matrix-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        rgba(0, 255, 0, 0.1) 0px,
+        rgba(0, 255, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    animation: matrix-scroll 10s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes matrix-scroll {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+
+/* ===========================
+   Event Cards
+=========================== */
+.event-card {
+    background: rgba(20, 20, 30, 0.8);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 0.75rem;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+}
+
+/* ===========================
+   Countdown Timer
+=========================== */
+.countdown-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+/* ===========================
+   Buttons
+=========================== */
+button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+footer p {
+    margin: 0.25rem 0;
+    font-size: 0.875rem;
+}
+
+/* ===========================
+   Responsive Tweaks
+=========================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem !important;
+    }
+
+    .event-card {
+        padding: 1rem;
+    }
+}
+        /* Glow text effect */
+.glow-text {
+    text-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6, 0 0 20px #00ffff, 0 0 40px #00ffff;
+}
+
+/* Background slow movement */
+@keyframes bgMove {
+    0% { background-position: center; }
+    50% { background-position: center 10px; }
+    100% { background-position: center; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+@keyframes pulseSlow {
+    0%, 100% { text-shadow: 0 0 10px #8b5cf6, 0 0 20px #00ffff; }
+    50% { text-shadow: 0 0 20px #8b5cf6, 0 0 40px #00ffff; }
+}
+
+/* Utility classes */
+.animate-fadeInUp { animation: fadeInUp 1.2s ease forwards; }
+.animate-zoomIn { animation: zoomIn 1s ease forwards; }
+.animate-zoomInDelay { animation: zoomIn 1s ease 0.5s forwards; opacity: 0; }
+.animate-fadeInDelay { animation: fadeInUp 1s ease 0.6s forwards; opacity: 0; }
+.animate-fadeInDelay2 { animation: fadeInUp 1s ease 0.8s forwards; opacity: 0; }
+.animate-pulseSlow { animation: pulseSlow 2.5s infinite alternate; }
+
+        /* Fade in + slide up animation */
+@keyframes fadeInUpDelay {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUpDelay {
+    animation: fadeInUpDelay 1s ease-out 1.2s forwards; /* 1.2s delay after title */
+    opacity: 0; /* hidden before animation starts */
+}
+        html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-top: 0;
+    padding-top: 0;
+    background: none;
+}
+        /* Ticker Animation */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+
+
+</style>
+
+</head>
+
+<body class="bg-cover bg-center bg-no-repeat min-h-screen text-white" style="background-color: rgb(13, 21, 18)">
+
+    <!-- Scrolling Ticker Bar -->
+<section class="bg-black border-y border-purple-500 overflow-hidden relative">
+    <div class="ticker-text font-orbitron text-lg text-purple-300 glow-text py-3 whitespace-nowrap animate-marquee">
+        🚀 Code War 2025 Update: Registration closes on December 20, 2025 • ⚡ New AI Model Build category announced • 🏆 Bigger prizes this year! • 💻 Coding Workshop coming soon • 🎯 Stay tuned for surprise bonus challenges!
+    </div>
+</section>
+    <!-- Header -->
+<header class="relative py-16 bg-gray-900 overflow-hidden"
+        style="background-image: url('static/assets/images/codewars.png');
+               background-size: cover;
+               background-position: center;
+               background-repeat: no-repeat;
+               animation: bgMove 20s linear infinite;">
+
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+    <!-- Content -->
+    <div class="container mx-auto px-6 text-center relative z-10 animate-fadeInUp">
+
+        <!-- Logo / Icon -->
+        <div class="mb-8 animate-zoomIn">
+            <svg width="120" height="120" viewBox="0 0 120 120" class="mx-auto mb-6">
+                <defs>
+                    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00ffff;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <g filter="url(#glow)">
+                    <rect x="30" y="30" width="60" height="60" rx="8" fill="none" stroke="url(#codeGradient)" stroke-width="4"/>
+                    <text x="60" y="55" font-family="Orbitron" font-size="12" fill="url(#codeGradient)" text-anchor="middle">&lt;/&gt;</text>
+                    <text x="60" y="75" font-family="Orbitron" font-size="8" fill="url(#codeGradient)" text-anchor="middle">CODE WAR</text>
+                    <circle cx="35" cy="35" r="3" fill="url(#codeGradient)"/>
+                    <circle cx="85" cy="35" r="3" fill="url(#codeGradient)"/>
+                    <circle cx="35" cy="85" r="3" fill="url(#codeGradient)"/>
+                    <circle cx="85" cy="85" r="3" fill="url(#codeGradient)"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Title -->
+        <h1 class="font-orbitron text-6xl md:text-8xl font-black mb-4 glow-text animate-pulseSlow">
+            CODE WAR 2025
+        </h1>
+        <p class="text-xl md:text-2xl mb-2 text-purple-300 animate-fadeInDelay">
+            Government Polytechnic Ratnagiri
+        </p>
+        <p class="text-lg text-gray-300 mb-8 animate-fadeInDelay2">
+            The Ultimate Coding Championship
+        </p>
+
+        <!-- Countdown -->
+        <div class="countdown-box p-6 rounded-lg max-w-md mx-auto mb-8 bg-black bg-opacity-40 backdrop-blur-md animate-zoomInDelay">
+            <div class="text-purple-400 font-orbitron text-sm mb-2">BATTLE BEGINS IN:</div>
+            <div class="font-orbitron text-3xl font-bold text-white" id="countdown-timer">
+                <div class="grid grid-cols-4 gap-2 text-center">
+                    <div><div id="days" class="text-2xl">100</div><div class="text-xs text-gray-400">DAYS</div></div>
+                    <div><div id="hours" class="text-2xl">10</div><div class="text-xs text-gray-400">HRS</div></div>
+                    <div><div id="minutes" class="text-2xl">24</div><div class="text-xs text-gray-400">MIN</div></div>
+                    <div><div id="seconds" class="text-2xl">48</div><div class="text-xs text-gray-400">SEC</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <!-- Main Content -->
+    <main class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-6xl">
+
+            <!-- About -->
+            <section class="mb-16">
+                <div class="event-card p-8 rounded-lg">
+                    <h2 class="font-orbitron text-3xl font-bold mb-6 text-purple-400 glow-text text-center">
+                        💻 ABOUT THE EVENT
+                    </h2>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Code War 2025 is the ultimate programming battleground! Compete in thrilling coding challenges,
+                        hackathons, debugging races, and AI model building contests. Prove your coding skills, teamwork,
+                        and problem-solving abilities to claim the title of ultimate code warrior!
+                    </p>
+                </div>
+            </section>
+
+            <!-- Competitions -->
+            <section class="mb-16">
+                <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">
+                    ⚡ COMPETITIONS
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">👨‍💻</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-purple-400">Hackathon</h3>
+                        <p class="text-gray-300 mb-4">24-hour challenge to build innovative software solutions.</p>
+                        <a href="registration.html" target="_blank"><button class="w-full py-2 bg-purple-600 hover:bg-purple-500 rounded font-semibold">Join Hackathon</button></a>
+                    </div>
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">🐞</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-purple-400">Debugging Race</h3>
+                        <p class="text-gray-300 mb-4">Find and fix code errors faster than your opponents.</p>
+                        <a href="registration.html" target="_blank"><button class="w-full py-2 bg-purple-600 hover:bg-purple-500 rounded font-semibold">Join Debugging</button></a>
+                    </div>
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">⚙</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-purple-400">Algorithm War</h3>
+                        <p class="text-gray-300 mb-4">Battle of logic and speed with challenging algorithmic problems.</p>
+                        <a href="registration.html" target="_blank"><button class="w-full py-2 bg-purple-600 hover:bg-purple-500 rounded font-semibold">Join Algorithm War</button></a>
+                    </div>
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">🤖</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-purple-400">AI Model Build</h3>
+                        <p class="text-gray-300 mb-4">Create and train AI models for real-world challenges.</p>
+                        <a href="registration.html" target="_blank"><button class="w-full py-2 bg-purple-600 hover:bg-purple-500 rounded font-semibold">Join AI Build</button></a>
+                    </div>
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">🌐</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-purple-400">Web Dev Sprint</h3>
+                        <p class="text-gray-300 mb-4">Rapid website creation challenge under time pressure.</p>
+                        <a href="registration.html" target="_blank"><button class="w-full py-2 bg-purple-600 hover:bg-purple-500 rounded font-semibold">Join Web Sprint</button></a>
+                    </div>
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">📊</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-purple-400">Data Science Quest</h3>
+                        <p class="text-gray-300 mb-4">Analyze datasets and present insights like a pro.</p>
+                        <a href="registration.html" target="_blank"><button class="w-full py-2 bg-purple-600 hover:bg-purple-500 rounded font-semibold">Join Data Quest</button></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rules -->
+            <section class="mb-16">
+                <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">
+                    📜 RULES & GUIDELINES
+                </h2>
+                <div class="event-card p-8 rounded-lg text-gray-300 space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Register online before the deadline.</li>
+                        <li>Plagiarism will lead to disqualification.</li>
+                        <li>Team size: 1–3 members.</li>
+                        <li>All code must be original and written during the event.</li>
+                        <li>Follow coordinator’s instructions.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Prizes -->
+            <section class="mb-16">
+                <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">
+                    🏆 PRIZES & REWARDS
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">🥇</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-yellow-400">1st Place</h3>
+                        <p class="text-gray-300">₹5,000 + Trophy + Certificate</p>
+                    </div>
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">🥈</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-gray-300">2nd Place</h3>
+                        <p class="text-gray-300">₹3,000 + Medal + Certificate</p>
+                    </div>
+                    <div class="event-card p-6 rounded-lg text-center">
+                        <div class="text-5xl mb-4">🥉</div>
+                        <h3 class="font-orbitron text-xl font-bold mb-2 text-orange-400">3rd Place</h3>
+                        <p class="text-gray-300">₹2,000 + Medal + Certificate</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule -->
+            <section class="mb-16">
+                <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">
+                    📅 EVENT SCHEDULE
+                </h2>
+                <div class="event-card p-8 rounded-lg text-gray-300 space-y-4">
+                    <div class="flex justify-between border-b border-gray-700 pb-2">
+                        <span>09:00 AM – 09:30 AM</span> <span>Registration & Welcome</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-700 pb-2">
+                        <span>09:30 AM – 12:00 PM</span> <span>Preliminary Rounds</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-700 pb-2">
+                        <span>12:00 PM – 01:00 PM</span> <span>Lunch Break</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-700 pb-2">
+                        <span>01:00 PM – 04:00 PM</span> <span>Final Coding Battles</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>04:00 PM – 05:00 PM</span> <span>Prize Distribution</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="mb-16">
+                <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">
+                    💬 WHAT PARTICIPANTS SAY
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="event-card p-6 rounded-lg">
+                        <p class="italic text-gray-300">"Code War was an adrenaline rush! I learned so much and made amazing friends."</p>
+                        <p class="mt-4 text-purple-400 font-bold">— Anjali, Winner 2024</p>
+                    </div>
+                    <div class="event-card p-6 rounded-lg">
+                        <p class="italic text-gray-300">"A perfect blend of fun, challenge, and innovation. Can't wait for the next one!"</p>
+                        <p class="mt-4 text-purple-400 font-bold">— Rohit, Participant 2024</p>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- FAQ -->
+            <section class="mb-16">
+                <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">
+                    ❓ FREQUENTLY ASKED QUESTIONS
+                </h2>
+                <div class="event-card p-8 rounded-lg text-gray-300 space-y-4">
+                    <div>
+                        <p class="font-bold text-purple-300">1. Do I need to bring my own laptop?</p>
+                        <p>Yes, participants must bring their own laptops with necessary software installed.</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-purple-300">2. Can beginners participate?</p>
+                        <p>Absolutely! We have challenges for all skill levels.</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-purple-300">3. Is there a registration fee?</p>
+                        <p>Yes, ₹100 per participant, payable during online registration.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+      <section class="text-center">
+    <div class="event-card p-12 rounded-lg">
+        <h2 class="font-orbitron text-4xl font-bold mb-6 glow-text">
+            READY TO CODE?
+        </h2>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Step into the arena of algorithms, debugging duels, and high-speed hackathons.
+            Your coding skills could crown you the ultimate Code Warrior!
+        </p>
+        <a href="registration.html" target="_blank" class="neon-button inline-block px-12 py-4 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xl rounded-lg transform hover:scale-105 transition">
+            🚀 REGISTER NOW
+        </a>
+        <p class="text-sm text-gray-400 mt-4">
+            Registration closes: December 20, 2025 • Limited slots per event
+        </p>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <div class="text-2xl">💻</div>
+                <h4 class="font-orbitron text-xl font-bold glow-text">CODE WAR 2025</h4>
+            </div>
+            <p class="text-gray-400 mb-2">Government Polytechnic Ratnagiri</p>
+            <p class="text-gray-500 text-sm">
+                &copy; 2025 Code War. All rights reserved. May the best coder win.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+// Set your event date here (YYYY-MM-DDTHH:MM:SS)
+const eventDate = new Date("2025-12-31T10:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+        document.getElementById("countdown-timer").innerHTML = "EVENT STARTED!";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+// Update every second
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+</body>
+</html>

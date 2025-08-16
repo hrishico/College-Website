@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Quiz - Code War 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Glow Text */
+    .glow-text {
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    }
+    /* Fade/Slide Animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s ease-out;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Card Styles */
+    .card {
+      background: rgba(40, 0, 60, 0.5);
+      border: 1px solid rgba(255, 0, 255, 0.4);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+      backdrop-filter: blur(10px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 0 25px rgba(255, 0, 255, 0.5);
+    }
+    /* Accordion animation */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 300px;
+    }
+    /* Floating Animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+     body {
+    background: linear-gradient(135deg, #0d0d2b, #1a0033, #000000);
+    background-size: 400% 400%;
+    animation: bgAnimation 20s ease infinite;
+    color: white;
+    font-family: 'Orbitron', monospace;
+    scroll-behavior: smooth;
+  }
+
+  @keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+    /* Marquee animation */
+.animate-marquee {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+       /* Glow Text */
+    .glow-text {
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    }
+
+    /* General font family */
+    body {
+      background: linear-gradient(135deg, #0d0d2b, #1a0033, #000000);
+      background-size: 400% 400%;
+      animation: bgAnimation 20s ease infinite;
+      color: white;
+      font-family: 'Inter', sans-serif; /* ✅ Changed to Inter */
+      scroll-behavior: smooth;
+    }
+
+    /* Headings in Orbitron */
+    h1, h2, h3, h4 {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Rest of your CSS continues... */
+
+    body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    line-height: 1.6;
+
+    /* New background gradient with upper color */
+    background: linear-gradient(to bottom, #1a0033 0%, #0d0d2b 30%, #000000 100%);
+    background-size: 400% 400%;
+   
+ animation: bgAnimation 20s ease infinite;
+}
+
+   .ticker {
+      display: flex;
+      width: 100%;
+      animation: tickerScroll 20s linear infinite;
+    }
+
+    .ticker-item {
+      flex-shrink: 0;
+      padding: 0 2rem;
+      font-weight: bold;
+      white-space: nowrap;
+      font-size: 1.1rem;
+    }
+
+    @keyframes tickerScroll {
+      0% {
+        transform: translateX(100%); /* Start off-screen right */
+      }
+      100% {
+        transform: translateX(-100%); /* Move fully off-screen left */
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Tech Quiz Update Ticker -->
+<section class="bg-purple-900 text-white py-3 overflow-hidden relative">
+  <div class="animate-marquee whitespace-nowrap text-lg font-orbitron">
+    📢 Tech Quiz Registration Opens Soon! &nbsp; | &nbsp;
+    💡 New Rounds Added: Puzzle Solving & Rapid Fire! &nbsp; | &nbsp;
+    🏆 Exciting Prizes Await for the Top 3 Winners! &nbsp; | &nbsp;
+    ⏳ Stay Tuned for More Updates...
+  </div>
+</section>
+
+  <!-- Hero Section -->
+ <header
+  class="text-center py-16 bg-gradient-to-r from-purple-900/80 to-black/80 fade-up bg-cover bg-center bg-no-repeat"
+  style="background-image: url('static/assets/images/techquizehero.png');">
+
+  <h1 class="text-5xl font-bold glow-text floating">Tech Quiz 2025</h1>
+  <p class="mt-4 text-lg fade-up" style="transition-delay:0.2s">
+    Test your tech knowledge in the ultimate battle of brains!
+  </p>
+  <a href="#register">
+    <button class="mt-6 px-6 py-3 bg-purple-600 hover:bg-purple-500 rounded font-bold fade-up" style="transition-delay:0.4s">
+      Register Now
+    </button>
+  </a>
+</header>
+
+
+  <!-- About Section -->
+  <section class="max-w-4xl mx-auto py-16 px-6 fade-up">
+    <div class="card">
+      <h2 class="text-3xl font-bold mb-4 text-purple-400">About the Event</h2>
+      <p class="text-gray-300">The Tech Quiz is a thrilling competition designed to challenge your knowledge of programming, AI, computer science, and the latest technology trends. Expect rapid-fire rounds, logical puzzles, and some tricky surprises.</p>
+    </div>
+  </section>
+
+  <!-- Why Participate -->
+  <section class="max-w-5xl mx-auto py-16 px-6 fade-up">
+    <div class="card">
+      <h2 class="text-3xl font-bold mb-8 text-purple-400">Why Participate?</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card">🧠 <h3 class="text-xl font-bold mb-2">Challenge Yourself</h3><p class="text-gray-300">Push your limits with high-level tech questions and time-bound rounds.</p></div>
+        <div class="card">🤝 <h3 class="text-xl font-bold mb-2">Network</h3><p class="text-gray-300">Meet like-minded peers, seniors, and tech experts from across institutes.</p></div>
+        <div class="card">🏆 <h3 class="text-xl font-bold mb-2">Win Prizes</h3><p class="text-gray-300">Exciting cash prizes, certificates, and bragging rights await!</p></div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Rules Section -->
+<section class="max-w-4xl mx-auto py-16 px-6 fade-up" style="background-color: rgba(40, 0, 60, 0.5); border-radius: 12px;">
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-purple-400 glow-text">📜 Rules & Guidelines</h2>
+        <p class="text-gray-300 mt-2">Please read the following instructions carefully before participating.</p>
+    </div>
+
+    <div class="accordion border border-purple-500 rounded overflow-hidden shadow-lg">
+
+        <!-- Rule 1 -->
+        <div class="accordion-item border-b border-purple-500">
+            <button class="w-full text-left px-5 py-4 font-semibold text-white hover:bg-purple-900 transition">
+                1️⃣ Eligibility
+            </button>
+            <div class="accordion-content px-5 pb-4 text-gray-300 bg-black bg-opacity-30">
+                Open to all students of Govt. Polytechnic Ratnagiri and invited institutions.
+            </div>
+        </div>
+
+        <!-- Rule 2 -->
+        <div class="accordion-item border-b border-purple-500">
+            <button class="w-full text-left px-5 py-4 font-semibold text-white hover:bg-purple-900 transition">
+                2️⃣ Format
+            </button>
+            <div class="accordion-content px-5 pb-4 text-gray-300 bg-black bg-opacity-30">
+                The quiz will have 3 rounds: Multiple Choice (MCQ), Buzzer, and Rapid Fire.
+            </div>
+        </div>
+
+        <!-- Rule 3 -->
+        <div class="accordion-item">
+            <button class="w-full text-left px-5 py-4 font-semibold text-white hover:bg-purple-900 transition">
+                3️⃣ Scoring
+            </button>
+            <div class="accordion-content px-5 pb-4 text-gray-300 bg-black bg-opacity-30">
+                Correct answers: <span class="text-green-400 font-bold">+10 points</span> <br>
+                Wrong answers (in later rounds): <span class="text-red-400 font-bold">-5 points</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+  <!-- Sample Questions -->
+  <section class="max-w-5xl mx-auto py-16 px-6 fade-up">
+    <div class="card">
+      <h2 class="text-3xl font-bold mb-8 text-purple-400 text-center">Sample Questions</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card"><p class="text-gray-300">Which programming language is known as the "mother of all languages"?</p></div>
+        <div class="card"><p class="text-gray-300">What does AI stand for, and who is known as its father?</p></div>
+        <div class="card"><p class="text-gray-300">In computing, what does the acronym HTML stand for?</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prizes Section -->
+  <section class="max-w-4xl mx-auto py-16 px-6 fade-up text-center">
+    <div class="card">
+      <h2 class="text-3xl font-bold mb-8 text-purple-400">Prizes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card glow-text">🏆 1st Prize: ₹3000</div>
+        <div class="card glow-text">🥈 2nd Prize: ₹2000</div>
+        <div class="card glow-text">🥉 3rd Prize: ₹1000</div>
+      </div>
+    </div>
+  </section>
+<section class="py-16" style="background-color: rgba(40, 0, 60, 0.5);">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-purple-400 glow-text mb-8">🛠 Competition Format</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Round 1 -->
+            <div class="p-6 border border-purple-500 rounded-lg hover:scale-105 transition shadow-lg bg-black bg-opacity-30">
+                <h3 class="text-xl font-semibold text-white mb-3">Round 1: Code Sparks</h3>
+                <p class="text-gray-300">
+                    Test your speed and precision with a multiple-choice quiz covering core programming concepts, logic puzzles, and computer science fundamentals.
+                </p>
+            </div>
+
+            <!-- Round 2 -->
+            <div class="p-6 border border-purple-500 rounded-lg hover:scale-105 transition shadow-lg bg-black bg-opacity-30">
+                <h3 class="text-xl font-semibold text-white mb-3">Round 2: Debug the Bug</h3>
+                <p class="text-gray-300">
+                    Face off against tricky, error-filled code snippets. Your mission: hunt down bugs and fix them faster than your competitors.
+                </p>
+            </div>
+
+            <!-- Round 3 -->
+            <div class="p-6 border border-purple-500 rounded-lg hover:scale-105 transition shadow-lg bg-black bg-opacity-30">
+                <h3 class="text-xl font-semibold text-white mb-3">Round 3: Brainstorm Blitz</h3>
+                <p class="text-gray-300">
+                    A high-pressure rapid-fire round filled with tech trivia, algorithm challenges, and brain teasers to crown the ultimate Tech Quiz champion.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Tech Quiz Photo Gallery -->
+<section class="py-16" style="background-color: rgba(40, 0, 60, 0.5);">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-purple-400 mb-10 glow-text">📸 Tech Quiz Moments</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="overflow-hidden rounded-lg shadow-lg hover:scale-105 transition">
+                <img src="static/assets/images/participants.png" alt="Tech Quiz Participants" class="w-full h-64 object-cover">
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-lg hover:scale-105 transition">
+                <img src="static/assets/images/inquiz.png" alt="Students in Quiz" class="w-full h-64 object-cover">
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-lg hover:scale-105 transition">
+                <img src="static/assets/images/host.png" alt="Quiz Host" class="w-full h-64 object-cover">
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+  <!-- Registration Section -->
+  <section id="register" class="text-center py-16 fade-up">
+    <div class="card">
+      <h2 class="text-3xl font-bold mb-4 text-purple-400">Register for Tech Quiz</h2>
+      <p class="text-gray-300 mb-6">Fill in the registration form to confirm your spot in the competition.</p>
+      <a href="https://your-registration-link.com" target="_blank">
+        <button class="px-8 py-3 bg-purple-600 hover:bg-purple-500 rounded font-bold">Register Now</button>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <div class="text-2xl">💻</div>
+                <h4 class="font-orbitron text-xl font-bold glow-text">CODE WAR 2025</h4>
+            </div>
+            <p class="text-gray-400 mb-2">Government Polytechnic Ratnagiri</p>
+            <p class="text-gray-500 text-sm">
+                &copy; 2025 Code War. All rights reserved. May the best coder win.
+            </p>
+        </div>
+    </footer>
+
+  <script>
+    // Scroll animations
+    const faders = document.querySelectorAll('.fade-up');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Accordion functionality
+    document.querySelectorAll('.accordion-item button').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

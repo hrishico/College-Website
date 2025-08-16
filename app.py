@@ -24,6 +24,15 @@ def event():
 def cantact():
     return render_template("contact.html")
 
+
+@app.route('/techquiz')
+def techquiz():
+    return render_template("techquiz.html")
+
+@app.route('/codewar')
+def codewar():
+    return render_template("codewar.html")
+
 @app.route('/register')
 def register_page_load():
     return render_template("registration.html")
