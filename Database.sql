@@ -11,7 +11,9 @@ create table admins_info (
 ALTER TABLE admins_info
 ADD CONSTRAINT unique_name UNIQUE (name),
 ADD CONSTRAINT unique_email UNIQUE (email);
-
+ALTER TABLE admins_info
+MODIFY name VARCHAR(100) NOT NULL,
+MODIFY email VARCHAR(50) NOT NULL;
 
 CREATE TABLE event_info (
     event_id int auto_increment primary key,
@@ -30,6 +32,13 @@ CREATE TABLE registered_students (
     reg_event varchar(50)
 );
 
+ALTER TABLE registered_students
+MODIFY student_email VARCHAR(50) NOT NULL,
+MODIFY phone_no VARCHAR(10) NOT NULL,
+ADD CONSTRAINT unique_student_email UNIQUE (student_email),
+ADD CONSTRAINT unique_phone_no UNIQUE (phone_no);
+
+
 INSERT INTO admins_info (name, ph_no, password, email)
 VALUES ('Sarvesh Navale', '9763772464', 'password#123', 'sarveshnavale@gmail.com'),
 ('Sarvesh Morgoankar', '9828742212', 'password#123', 'sarveshmorgoankar@gmail.com'),
@@ -41,4 +50,8 @@ ADD COLUMN reg_category VARCHAR(50) AFTER reg_event;
 ALTER TABLE registered_students
 DROP COLUMN reg_category;
 
+select * from admins_info;
 
+/*error might occur in below line because iam directly using truncate here*/
+
+truncate table registered_students;
