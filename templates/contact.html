@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Contact | Kalavishkar 2025</title>
-
+    <title>Contact | Kalavishkar 2026</title>
     <!-- Fonts & Styles -->
     <link href="static/eventstyle.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Prompt&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
     <style>
         html, body {
             height: 100%;
@@ -67,23 +65,20 @@
     </style>
 </head>
 <body>
-
     <header>
     <nav class="navbar">
         <div class="logo font-orbitron glow-text"><i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri</div>
         <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="adminspanel.html">Admin Panel</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-        <li><a href="registration.html">Register</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="/event">Home</a></li>
+        <li><a href="/admin">Admin Panel</a></li>
+        <li><a href="/schedule">Schedule</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/contact" class="active">Contact</a></li>
         </ul>
     </nav>
     </header>
-
     <div class="contact-container">
         <h2 style="color:#c296f0;" class="font-orbitron glow-text">Admin Contact Details</h2>
-
         {% for admin in admins %}
         <div class="contact-card">
             <h3 class="font-orbitron">{{ admin.name }}</h3>
@@ -92,6 +87,5 @@
         </div>
         {% endfor %}
     </div>
-
 </body>
 </html>

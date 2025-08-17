@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalavishkar 2025 - Registration</title>
+    <title>Kalavishkar 2026 - Registration</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -203,8 +203,7 @@
   max-width: 420px;
 }
 */
-
-    </style>
+</style>
 </head>
 <body>
     <!-- Navigation -->
@@ -212,15 +211,14 @@
         <nav class="navbar">
             <div class="logo"><i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri</div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="registration.html" class="active">Register</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/event">Home</a></li>
+                <li><a href="/admin">Admin Panel</a></li>
+                <li><a href="/schedule">Schedule</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/contact" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
-
     <form id="registrationForm" method="POST" action="/register">
     <!-- Personal Information -->
     <div class="row g-3">
@@ -297,7 +295,7 @@
             Complete Registration
         </button>
     </div>
-</form>
+    </form>
 
     <!-- Simple Popup -->
     <div id="simplePopup" class="simple-popup">
@@ -335,7 +333,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
    <script>
-document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Stop normal submit
 
     // Show popup
@@ -343,17 +341,16 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 
     // Wait 10 seconds, then close popup, alert, and send to backend
     setTimeout(function() {
-        // Close popup
-        document.getElementById('simplePopup').style.display = 'none';
+    // Close popup
+    document.getElementById('simplePopup').style.display = 'none';
 
-        // Show success alert
-        alert('Registration Successful!');
+    // Show success alert
+    alert('Registration Successful!');
 
-        // Actually submit the form to Flask/MySQL
-        e.target.submit(); // This will POST to /register
+    // Actually submit the form to Flask/MySQL
+    e.target.submit(); // This will POST to /register
     }, 10000);
 });
 </script>
-
 </body>
 </html>
