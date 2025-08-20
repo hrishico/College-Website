@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports '26 - Govt. Polytechnic Ratnagiri</title>
-    <link rel="stylesheet"href="eventstyle.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
 
         .font-orbitron { font-family: 'Orbitron', monospace; }
         .font-inter { font-family: 'Inter', sans-serif; }
@@ -16,11 +15,95 @@
             text-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6;
         }
 
+       .matrix-bg {
+    background-color: #0c1c36; /* solid dark background */
+    background-size: cover;
+    background-position: center, center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
 
+
+        .matrix-bg::before {
+            content: none;
+         }
+
+        .floating-sports {
+            position: absolute;
+            font-size: 2rem;
+            color: #8b5cf6;
+            opacity: 0.1;
+            animation: float 25s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+            100% { transform: translateY(-100px) translateX(100px) rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .event-card {
+            background: linear-gradient(145deg, #2e1a46, #3d2660);
+            border: 1px solid #8b5cf6;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            border-color: #ffd700;
+        }
+
+        .neon-button {
+            background: linear-gradient(45deg, #8b5cf6, #ffd700);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        .countdown-box {
+            background: linear-gradient(145deg, #3d2660, #2e1a46);
+            border: 2px solid #8b5cf6;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .prize-card {
+            background: linear-gradient(145deg, #4a3569, #3d2660);
+            border: 1px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .prize-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+       
     </style>
 </head>
 
 <body class="bg-cover bg-center bg-no-repeat min-h-screen text-white" style="background-color: rgb(13, 21, 18)">
+
+    <!-- Announcement Bar -->
+<div class="bg-purple-800 text-white py-3 text-center font-inter text-sm overflow-hidden">
+  <marquee behavior="scroll" direction="left" scrollamount="9">
+    🏆 Sports '26 Registration Opens Soon! &nbsp; | &nbsp;
+    ⚽ Football,🤼Kabaddi,♟️Chess,🎯Carrom &🏏Cricket, Matches Announced! &nbsp; | &nbsp;
+    🥇 Exciting Prizes Await for Winners! &nbsp; | &nbsp;
+    📢 Stay Tuned for Schedule Updates!
+  </marquee>
+</div>
+
 
 
     <!-- Header -->
