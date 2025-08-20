@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Fest - College Music Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+        .font-orbitron { font-family: 'Orbitron', monospace; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+
+        .glow-text {
+            text-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6;
+        }
+
+        .matrix-bg {
+            background-color: #0c1c36; /* solid dark background */
+            background-size: cover;
+            background-position: center, center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .matrix-bg::before {
+            content: none;
+        }
+
+        .floating-sports {
+            position: absolute;
+            font-size: 2rem;
+            color: #8b5cf6;
+            opacity: 0.1;
+            animation: float 25s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+            100% { transform: translateY(-100px) translateX(100px) rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+
+
+        .event-card {
+            background: linear-gradient(145deg, #2e1a46, #3d2660);
+            border: 1px solid #8b5cf6;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            border-color: #ffd700;
+        }
+
+        .neon-button {
+            background: linear-gradient(45deg, #8b5cf6, #ffd700);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        .countdown-box {
+            background: linear-gradient(145deg, #3d2660, #2e1a46);
+            border: 2px solid #8b5cf6;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .prize-card {
+            background: linear-gradient(145deg, #4a3569, #3d2660);
+            border: 1px solid #ffd700;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* vertical centering */
+            text-align: center;
+            width: 420px;
+            height: 250px;
+        }
+
+        .prize-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .pulse-animation {
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+        }
+
+        .gallery-heading {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-family: 'Orbitron', sans-serif;
+            color: #c77dff;
+            font-size: 1.8rem;
+            text-align: center;
+            text-shadow: 0 0 10px #c77dff, 0 0 20px #a855f7;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .festival-glow {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .stage-card {
+            background: linear-gradient(145deg, #f0f0f0, #cacaca);
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .ticket-shine {
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 400% 400%;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+          gallery-heading {
+  font-size: 32px;
+
+  margin-bottom: 30px;
+
+ font-family: 'Orbitron', sans-serif;
+    color: #c77dff;
+    font-size: 1.8rem;
+    text-align: center;
+    text-shadow: 0 0 10px #c77dff, 0 0 20px #a855f7;
+
+}
+
+.memory-slideshow {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.memory-slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  border-radius: 12px;
+  z-index: 0;
+}
+.auto-memory-gallery{
+  background-color: #0d0d2b;
+  padding: 40px 0;
+  text-align: center;
+  color: white;
+  }
+   .memory-slideshow img:first-child {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+      <!-- Announcement Bar -->
+<div class="bg-purple-800 text-white py-3 text-center font-inter text-lg overflow-hidden">
+  <marquee behavior="scroll" direction="left" scrollamount="9">
+    🏆 Music Fest '26 Registration Opens Soon! &nbsp; | &nbsp;
+    🎸Battle of the Bands, 🎧DJ Showdown, 🎤Solo Vocal Championship Announced! &nbsp; | &nbsp;
+    🥇 Exciting Prizes Await for Winners! &nbsp; | &nbsp;
+    📢 Stay Tuned for Schedule Updates!
+  </marquee>
+</div>
+    <!-- Hero Section -->
+
+    <section class="matrix-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+
+
+        <div class="container mx-auto px-6 text-center text-white relative z-10">
+            <div class="mb-8">
+                <br><br><br><br>
+                <h1 class="text-6xl md:text-7xl font-orbitron font-bold mb-6 leading-tight glow-text">
+                    Music Fest'26
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-4 font-inter">
+                    The Ultimate College Music Experience
+                </p>
+                <p class="font-orbitron text-xl font-bold mb-2 text-purple-400">
+                    Government Polytechnic Ratnagiri
+                </p>
+            </div>
+
+
+
+
+         <!-- Countdown Timer -->
+            <div class="countdown-box rounded-2xl p-6 mb-12 max-w-2xl mx-auto">
+                <h3 class="font-orbitron text-xl font-bold mb-2 text-purple-400">⏰
+                       Music Fest Countdown
+                </h3>
+                <div class="grid grid-cols-4 gap-4 text-center">
+                    <div>
+                        <div class="text-3xl font-orbitron font-bold glow-text" id="days">227</div>
+                        <div class="text-sm uppercase tracking-wide font-inter">Days</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-orbitron font-bold glow-text" id="hours">08</div>
+                        <div class="text-sm uppercase tracking-wide font-inter">Hours</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-orbitron font-bold glow-text" id="minutes">4</div>
+                        <div class="text-sm uppercase tracking-wide font-inter">Minutes</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-orbitron font-bold glow-text" id="seconds">15</div>
+                        <div class="text-sm uppercase tracking-wide font-inter">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+<!-- Action Buttons -->
+            <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+                <button class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-300 transition-colors pulse-animation">
+                    🎉  Join Music Fest
+                </button>
+                </div>
+
+    <!-- Lineup Section -->
+    <section id="lineup" class="py-20 matrix-bg">
+        <div class="container mx-auto px-6">
+            <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">🎤 Artist Lineup</h2>
+
+
+            <!-- Headliners -->
+            <div class="mb-16">
+
+
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="event-card p-8 rounded-xl">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">🎸</div>
+                            <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">Electric Pulse</h3>
+                           <p class="text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed"> Experience the ultimate test of speed, innovation, and skill at <strong>Electric Pulse</strong>!
+                Compete in high-energy technical challenges and showcase your creativity.</p>
+                            <p class="text-sm mt-2 text-gray-300">Friday 9:00 PM - Main Stage</p>
+                        </div>
+                    </div>
+                    <div class="event-card p-8 rounded-xl">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">🎤</div>
+                            <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">Indie Waves</h3>
+                            <p class="text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed">Experience soulful live performances from India’s most talented indie artists.
+    Let the melodies and lyrics take you on an emotional journey.
+    A night of music, energy, and unforgettable vibes awaits!</p>
+                            <p class="text-sm mt-2 text-gray-300">Saturday 9:00 PM - Main Stage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supporting Acts -->
+            <div>
+                <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text"> Supporting Acts.!!</h2>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="event-card p-6 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-4xl mb-3">🥁</div>
+                            <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">Beat Drop</h3>
+                            <p class="text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed">High-energy beats and powerful rap performances.</p>
+                        </div>
+                    </div>
+                    <div class="event-card p-6 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-4xl mb-3">🎹</div>
+                            <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">Neon Dreams</h4>
+                            <p class="text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed">Retro-futuristic sounds with dazzling neon vibes.</p>
+                        </div>
+                    </div>
+                    <div class="event-card p-6 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-4xl mb-3">🎺</div>
+                            <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">Jazz Collective</h4>
+                            <p class="text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed">Smooth jazz with a modern twist.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competition Section -->
+    <section id="competition" class="py-20 matrix-bg">
+        <div class="container mx-auto px-6">
+            <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text"> 🏆 Music Fest Competitions</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Battle of the Bands -->
+                <div class="event-card p-8 rounded-xl">
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">🎸</div>
+                        <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">Battle of the Bands</h3>
+                        <p class="text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed">Show your musical talent and compete for the grand prize!</p>
+                        <div class="bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-lg mb-4">
+                            <p class="font-bold text-black">🥇 Gold Medal + Trophy + Cash Prize + Certificate + Recording Deal</p>
+
+                        </div>
+                        <button class="neon-button px-6 py-3 rounded-full font-bold text-black">
+                            Register Band
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DJ Competition -->
+                <div class="event-card p-8 rounded-xl">
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">🎧</div>
+                        <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">DJ Showdown</h3>
+                        <p class="text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed">Mix, scratch, and drop the beat to win the crowd!</p>
+                        <div class="bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-lg mb-4">
+                            <p class="font-bold text-black">🥇 Gold Medal + Trophy + Cash Prize + Certificate + Equipment</p>
+
+                        </div>
+                        <button class="neon-button px-6 py-3 rounded-full font-bold text-black">
+                            Register DJ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Singing Contest -->
+                <div class="event-card p-8 rounded-xl">
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">🎤</div>
+                        <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">Solo Vocal Championship</h3>
+                        <p class="text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed">Showcase your voice and captivate the audience!</p>
+                        <div class="bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-lg mb-4">
+                            <p class="font-bold text-black">🥇 Gold Medal + Trophy + Cash Prize + Certificate + Studio Time</p>
+
+                        </div>
+                        <button class="neon-button px-6 py-3 rounded-full font-bold text-black">
+                            Register Singer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                      <!-- Photo Gallery -->
+        <section class="auto-memory-gallery">
+            <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">📸 Glimpses of Past Events</h2>
+          <div class="memory-slideshow" id="memorySlideshow">
+            <img src="https://ius-sdb.com/wp-content/uploads/2023/03/IND-dbcchennai-001-1.jpg" alt="Dance1">
+              <img src="https://thebges.edu.in/wp-content/uploads/2019/11/MG_0889.jpg" alt="Dance2">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgdW3PC4QEJET-9RJnrptosuzo3Mj3_mm1vA&s" alt="Dance3">
+              <img src="https://s3.youthkiawaaz.com/wp-content/uploads/2011/02/07004539/college-fest.jpg" alt="Dance4">
+          </div>
+      </section>
+             <br><br><br>
+            <!-- Competition Rules & Info -->
+            <div class="event-card p-8 rounded-xl">
+                <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">📋 Competition Guidelines</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">🎯 Eligibility</h3>
+                        <ul class="space-y-2 text-gray-300 text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed">
+                            <li>• Must be currently enrolled college student</li>
+                            <li>• Original compositions preferred</li>
+                            <li>• Maximum 5 minutes performance time</li>
+                                <li>• All genres welcome</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">📅 Important Dates</h3>
+                        <ul class="space-y-2 text-gray-300 text-lg text-purple-200 max-w-3xl mx-auto font-inter leading-relaxed" >
+                            <li>• Registration Deadline: April 05, 2026</li>
+                            <li>• Preliminary Rounds: April 07-08</li>
+                            <li>• Finals: During Music Fest (April 09-10)</li>
+                            <li>• Winners Announced: April 10, 5:30 PM</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+<!-- Registration Section -->
+    <section id="register" class="py-20 matrix-bg">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">🎉 Join Our Music Fest'26!</h2>
+            <p class="text-xl text-purple-200 mb-8 max-w-3xl mx-auto font-inter">
+                Don't miss this amazing opportunity to connect with your college community and create lasting memories!
+            </p>
+
+            <div class="event-card p-8 rounded-2xl max-w-lg mx-auto">
+                <button class="w-full bg-yellow-400 text-gray-900 font-bold py-4 rounded-full hover:bg-yellow-300 transition-colors text-lg font-orbitron pulse-animation">
+                    🎉 Join the Music Fest'26
+                </button>
+
+                <p class="text-sm text-purple-200 mt-4 font-inter">
+                    Don't miss this amazing college experience!
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-3">
+                <div class="text-xl">🎓</div>
+                <h4 class="text-xl font-bold mb-2 text-purple-400"> Music Fest'26</h4>
+            </div>
+
+            <div class="text-sm text-gray-400 mb-3">
+                📍 College Campus | 📅 March 15, 2026 | 📧 gathering2026@college.edu
+            </div>
+
+            <p class="text-gray-400 text-xs mb-1">Government Polytechnic College</p>
+            <p class="text-gray-500 text-xs">
+                &copy; 2026 Music Fest. Connect • Celebrate • Create Memories 🎉
+            </p>
+        </div>
+    </footer>
+
+    <script>
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll("#memorySlideshow img");
+
+    function showSlides() {
+        slides.forEach((img, i) => {
+            img.style.opacity = (i === slideIndex) ? 1 : 0;
+        });
+        slideIndex = (slideIndex + 1) % slides.length;
+        setTimeout(showSlides, 3000); // 3 seconds per slide
+    }
+
+    showSlides();
+});
+
+
+
+
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced hover effects for sport cards
+            const cards = document.querySelectorAll('.event-card, .prize-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                    this.style.boxShadow = '0 15px 40px rgba(139, 92, 246, 0.4)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 0 20px rgba(139, 92, 246, 0.2)';
+                });
+            });
+
+
+
+
+        // Social media buttons
+        document.querySelectorAll('footer button').forEach(button => {
+            button.addEventListener('click', function() {
+                const emoji = this.textContent;
+                let platform = '';
+                switch(emoji) {
+                    case '📘': platform = 'Facebook'; break;
+                    case '🐦': platform = 'Twitter'; break;
+                    case '📷': platform = 'Instagram'; break;
+                    case '📺': platform = 'YouTube'; break;
+                }
+                alert(`🔗 Opening ${platform} page for Music Fest 2024!`);
+            });
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.artist-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Competition registration buttons
+        document.querySelectorAll('#competition button').forEach(button => {
+            button.addEventListener('click', function() {
+                const buttonText = this.textContent.trim();
+                let competition = '';
+
+                if (buttonText.includes('Band')) {
+                    competition = 'Battle of the Bands';
+                } else if (buttonText.includes('DJ')) {
+                    competition = 'DJ Showdown';
+                } else if (buttonText.includes('Singer')) {
+                    competition = 'Solo Vocal Championship';
+                } else if (buttonText.includes('Download')) {
+                    alert('📄 Competition rules PDF would be downloaded here!\n\nThis includes detailed guidelines, judging criteria, and registration forms.');
+                    return;
+                }
+
+                if (competition) {
+                    alert(`🎵 Registration for ${competition}!\n\nYou would be redirected to the registration form. Good luck with your performance!`);
+                }
+            });
+        });
+
+
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e0bc4ae1774808',t:'MTc1NTAwOTcxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>
+function updateCountdown() {
+    const eventDate = new Date('April 5, 2026 09:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days.toString().padStart(3, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+        document.getElementById('days').textContent = '000';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+    }
+}
+
+// Update countdown every second
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+    <script>
+            //Photo Gallery
+document.addEventListener("DOMContentLoaded", function () {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll("#memorySlideshow img");
+
+    function showSlides() {
+        slides.forEach((img, i) => {
+            img.style.opacity = (i === slideIndex) ? 1 : 0;
+        });
+        slideIndex = (slideIndex + 1) % slides.length;
+        setTimeout(showSlides, 3000); // 3 seconds per slide
+    }
+
+    showSlides();
+}); </script>
+</html>
