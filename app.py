@@ -49,6 +49,11 @@ def sport_event():
 def Gathering_page():
     return render_template("gathering.html")
 
+@app.route('/musicfest')
+def musicfest():
+    return render_template('musicfest.html')
+
+
 @app.route('/admin')
 def admin_panel():
     return render_template("adminspanel.html")
