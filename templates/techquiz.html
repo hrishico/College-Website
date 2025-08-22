@@ -27,13 +27,13 @@
       border: 1px solid rgba(255, 0, 255, 0.4);
       border-radius: 1rem;
       padding: 1.5rem;
-      box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+      box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
       backdrop-filter: blur(10px);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
     .card:hover {
       transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 0 25px rgba(255, 0, 255, 0.5);
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
     }
     /* Accordion animation */
     .accordion-content {
@@ -157,11 +157,26 @@
   <p class="mt-4 text-lg fade-up" style="transition-delay:0.2s">
     Test your tech knowledge in the ultimate battle of brains!
   </p>
-  <a href="/register" target="_blank">
+  <a href="/register?=Tech Quiz" target="_blank">
     <button class="mt-6 px-6 py-3 bg-purple-600 hover:bg-purple-500 rounded font-bold fade-up" style="transition-delay:0.4s">
       Register Now
-    </button>
+    </button><br><br>
   </a>
+
+    <!-- Countdown -->
+        <div class="countdown-box p-6 rounded-lg max-w-md mx-auto mb-8 bg-black bg-opacity-40 backdrop-blur-md animate-zoomInDelay">
+            <div class="text-purple-400 font-orbitron text-sm mb-2">BATTLE BEGINS IN:</div>
+            <div class="font-orbitron text-3xl font-bold text-white" id="countdown-timer">
+                <div class="grid grid-cols-4 gap-2 text-center">
+                    <div><div id="days" class="text-2xl">100</div><div class="text-xs text-gray-400">DAYS</div></div>
+                    <div><div id="hours" class="text-2xl">10</div><div class="text-xs text-gray-400">HRS</div></div>
+                    <div><div id="minutes" class="text-2xl">24</div><div class="text-xs text-gray-400">MIN</div></div>
+                    <div><div id="seconds" class="text-2xl">48</div><div class="text-xs text-gray-400">SEC</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 </header>
 
 
@@ -252,7 +267,7 @@
       </div>
     </div>
   </section>
-<section class="py-16" style="background-color: rgba(40, 0, 60, 0.5);">
+<section class="py-16" style="background-color:  #0d0d2b, #1a0033, #000000;">
     <div class="max-w-5xl mx-auto text-center">
         <h2 class="text-3xl font-bold text-purple-400 glow-text mb-8">🛠 Competition Format</h2>
         <div class="grid md:grid-cols-3 gap-8">
@@ -285,7 +300,7 @@
     </div>
 </section>
 <!-- Tech Quiz Photo Gallery -->
-<section class="py-16" style="background-color: rgba(40, 0, 60, 0.5);">
+<section class="py-16" style="background-color:  #0d0d2b, #1a0033, #000000;">
     <div class="max-w-6xl mx-auto px-6 text-center">
         <h2 class="text-3xl font-bold text-purple-400 mb-10 glow-text">📸 Tech Quiz Moments</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -311,7 +326,7 @@
     <div class="card">
       <h2 class="text-3xl font-bold mb-4 text-purple-400">Register for Tech Quiz</h2>
       <p class="text-gray-300 mb-6">Fill in the registration form to confirm your spot in the competition.</p>
-      <a href="/register" target="_blank">
+      <a href="/register?event=Tech Quiz" target="_blank">
         <button class="px-8 py-3 bg-purple-600 hover:bg-purple-500 rounded font-bold">Register Now</button>
       </a>
     </div>
@@ -322,11 +337,11 @@
         <div class="container mx-auto px-6 text-center">
             <div class="flex items-center justify-center space-x-2 mb-4">
                 <div class="text-2xl">💻</div>
-                <h4 class="font-orbitron text-xl font-bold glow-text">CODE WAR 2025</h4>
+                <h4 class="font-orbitron text-xl font-bold glow-text">TECH QUIZ 2025</h4>
             </div>
             <p class="text-gray-400 mb-2">Government Polytechnic Ratnagiri</p>
             <p class="text-gray-500 text-sm">
-                &copy; 2025 Code War. All rights reserved. May the best coder win.
+                &copy; 2025 Tech Quiz. All rights reserved. May the best coder win.
             </p>
         </div>
     </footer>
@@ -351,6 +366,35 @@
         item.classList.toggle('active');
       });
     });
+
+
+    // Set your event date here (YYYY-MM-DDTHH:MM:SS)
+const eventDate = new Date("2025-12-31T10:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+        document.getElementById("countdown-timer").innerHTML = "EVENT STARTED!";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+// Update every second
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
   </script>
 
 </body>
