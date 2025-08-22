@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import mysql.connector
 
 app = Flask(__name__)
@@ -26,6 +26,7 @@ def contact():
     cursor.execute(query)
     admins = cursor.fetchall()
     cursor.close()
+
     return render_template("contact.html", admins=admins)
 
 @app.route('/techquiz')
@@ -35,6 +36,10 @@ def techquiz():
 @app.route('/codewar')
 def codewar():
     return render_template("codewar.html")
+
+@app.route('/robo')
+def robo():
+    return render_template("robo.html")
 
 @app.route('/register')
 def register_page_load():
@@ -51,6 +56,7 @@ def Gathering_page():
 @app.route('/musicfest')
 def musicfest():
     return render_template('musicfest.html')
+
 
 @app.route('/admin')
 def admin_panel():
@@ -79,23 +85,11 @@ def register_page():
         values = (first_name, last_name, student_email, phone_no, transaction_status, reg_event)
         cursor.execute(query, values)
         db.commit()
-        cursor.close()
 
         return "<h1>Registration successful!</h1>"
 
     return render_template("registration.html")
 
-# Route to display registered students in admin tools
-@app.route('/Admintools')
-def admin_tools():
-    cursor = db.cursor(dictionary=True)
-    query = "SELECT first_name, last_name, student_email, phone_no, transaction_status, reg_event FROM registered_students"
-    cursor.execute(query)
-    students = cursor.fetchall()
-    cursor.close()
-    return render_template("Admintools.html", students=students)
-
-# Admin login route
 @app.route('/Adminstool', methods=['POST'])
 def login():
     username = request.form['username']
@@ -105,10 +99,9 @@ def login():
     query = "SELECT * FROM admins_info WHERE name = %s AND password = %s"
     cursor.execute(query, (username, password))
     result = cursor.fetchone()
-    cursor.close()
 
     if result:
-        return redirect(url_for('admin_tools'))
+        return render_template("Admintools.html")
     else:
         return "<h1>Login Failed. Invalid credentials.</h1>"
 
