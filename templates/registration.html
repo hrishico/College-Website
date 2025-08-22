@@ -255,6 +255,8 @@
             <option>Kabaddi</option>
             <option>Carrom</option>
             <option>Track & Field</option>
+            <option>Cricket</option>
+            <option>Athletics</option>
         </select>
     </div>
 
@@ -351,6 +353,20 @@
     e.target.submit(); // This will POST to /register
     }, 10000);
 });
+    //auto event select
+    const params = new URLSearchParams(window.location.search);
+    const eventName = params.get("event");
+
+    if (eventName) {
+        const eventDropdown = document.getElementById("eventCategory");
+        for (let option of eventDropdown.options) {
+            if (option.text.toLowerCase() === eventName.toLowerCase()) {
+                option.selected = true;
+                break;
+            }
+        }
+    }
 </script>
+
 </body>
 </html>
