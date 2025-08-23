@@ -101,7 +101,19 @@ def login():
     result = cursor.fetchone()
 
     if result:
-        return render_template("Admintools.html")
+        # ✅ Fetch registered students after successful login
+        cursor.close()
+        cursor = db.cursor(dictionary=True)
+        query_students = """
+    SELECT stud_id, first_name, last_name, student_email, phone_no, transaction_status, reg_event
+    FROM registered_students
+"""
+
+        cursor.execute(query_students)
+        students = cursor.fetchall()
+        cursor.close()
+
+        return render_template("Admintools.html", students=students)
     else:
         return "<h1>Login Failed. Invalid credentials.</h1>"
 
