@@ -1161,3 +1161,13 @@ body {
             padding: 20px;
         }
     }
+    /* Override only the sidebar toggle and collapsed classes to keep it fixed */
+      .sidebar {
+        transform: translateX(0) !important;
+      }
+      .sidebar.collapsed {
+        transform: translateX(0) !important;
+      }
+      .sidebar-toggle {
+        display: none !important;
+      }
