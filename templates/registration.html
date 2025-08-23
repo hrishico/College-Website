@@ -13,7 +13,7 @@
     <!-- Your existing CSS -->
     <link href="static/eventstyle.css" rel="stylesheet">
     <style>
-        /* Responsive additions */
+       
         @media (max-width: 992px) {
             .main-container {
                 flex-direction: column;
@@ -75,7 +75,7 @@
             }
         }
         
-        /* Sidebar mobile toggle */
+        
         .sidebar-toggle {
             display: none;
         }
@@ -157,12 +157,11 @@
   margin-right: 0;
 }
 
-/* Section headers spacing (you already set the color inline) */
 #registrationForm .mb-4 > h3 {
   margin-top: 0;
 }
 
-/* Inputs and selects: ensure consistent dark look even without outer wrappers */
+
 #registrationForm .form-control,
 #registrationForm .form-select {
   background-color: #181a1f !important;
@@ -170,12 +169,12 @@
   border-color: #3a3a3a !important;
 }
 
-/* Checkbox label color on dark bg */
+
 #registrationForm .form-check-label {
   color: #ddd;
 }
 
-/* Optional: slightly round inputs to match card */
+
 #registrationForm .form-control,
 #registrationForm .form-select,
 #registrationForm .form-check-input {
@@ -191,22 +190,11 @@
   }
 }
 
-/* OPTIONAL: If you want the submit button NOT to be full-width,
-   uncomment the block below. By default your .d-grid makes it full-width. */
-/*
-#registrationForm .d-grid {
-  display: flex !important;
-  justify-content: center;
-}
-#registrationForm .d-grid .btn {
-  width: 100%;
-  max-width: 420px;
-}
-*/
+
 </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <header>
         <nav class="navbar">
             <div class="logo"><i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri</div>
@@ -220,7 +208,7 @@
         </nav>
     </header>
     <form id="registrationForm" method="POST" action="/register">
-    <!-- Personal Information -->
+
     <div class="row g-3">
         <div class="col-md-6">
             <label for="firstName" class="form-label">First Name</label>
@@ -244,7 +232,7 @@
         </div>
     </div>
 
-    <!-- Event Selection -->
+  
     <div class="mb-3">
         <label class="form-label">Select Event</label>
         <select class="form-select bg-dark text-white border-secondary"
@@ -281,7 +269,7 @@
         </select>
     </div>
 
-    <!-- Payment Information -->
+    
     <div class="row g-3">
         <div class="col-md-4">
             <label class="form-label">Payment Method</label>
@@ -300,10 +288,10 @@
         </div>
     </div>
 
-    <!-- Hidden transaction status -->
+
     <input type="hidden" name="transaction_status" value="Success">
 
-    <!-- Terms and Conditions -->
+ 
     <div class="mb-4 form-check">
         <input type="checkbox" class="form-check-input" id="termsCheck" required>
         <label class="form-check-label" for="termsCheck">I agree to the
@@ -311,7 +299,6 @@
         </label>
     </div>
 
-    <!-- Submit Button -->
     <div class="d-grid">
         <button type="submit" class="btn btn-primary btn-lg"
                 style="background-color: #c296f0; border: none; font-weight: bold;">
@@ -320,7 +307,10 @@
     </div>
     </form>
 
-    <!-- Simple Popup -->
+
+
+
+
     <div id="simplePopup" class="simple-popup">
         <div class="popup-content">
             <div class="spinner"></div>
@@ -329,7 +319,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+  
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-logo"><i class="fa-solid fa-building-columns"></i> Govt. Polytechnic Ratnagiri</div>
@@ -357,24 +347,24 @@
     
    <script>
     document.getElementById('registrationForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Stop normal submit
+    e.preventDefault();
 
     // Show popup
     document.getElementById('simplePopup').style.display = 'block';
 
-    // Wait 10 seconds, then close popup, alert, and send to backend
+    
     setTimeout(function() {
     // Close popup
     document.getElementById('simplePopup').style.display = 'none';
 
-    // Show success alert
+    // Showsuccess alert
     alert('Registration Successful! You will be further informed via your email!');
 
-    // Actually submit the form to Flask/MySQL
-    e.target.submit(); // This will POST to /register
+   
+    e.target.submit(); 
     }, 10000);
 });
-    //auto event select
+  
     const params = new URLSearchParams(window.location.search);
     const eventName = params.get("event");
 

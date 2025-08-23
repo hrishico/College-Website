@@ -101,7 +101,7 @@ def login():
     result = cursor.fetchone()
 
     if result:
-        # ✅ Fetch registered students after successful login
+        
         cursor.close()
         cursor = db.cursor(dictionary=True)
         query_students = """
