@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoVision Contest 2024</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+        .font-orbitron { font-family: 'Orbitron', monospace; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+
+        .glow-text {
+            text-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6;
+        }
+
+       .matrix-bg {
+    background-color: #0c1c36; /* solid dark background */
+    background-size: cover;
+    background-position: center, center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+       {
+  scroll-behavior: smooth;
+}
+        .matrix-bg::before {
+            content: none;
+         }
+
+        .floating-sports {
+            position: absolute;
+            font-size: 2rem;
+            color: #8b5cf6;
+            opacity: 0.1;
+            animation: float 25s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+            100% { transform: translateY(-100px) translateX(100px) rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .event-card {
+            background: linear-gradient(145deg, #2e1a46, #3d2660);
+            border: 1px solid #8b5cf6;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            border-color: #ffd700;
+        }
+
+        .neon-button {
+            background: linear-gradient(45deg, #8b5cf6, #ffd700);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        .countdown-box {
+            background: linear-gradient(145deg, #3d2660, #2e1a46);
+            border: 2px solid #8b5cf6;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .prize-card {
+            background: linear-gradient(145deg, #4a3569, #3d2660);
+            border: 1px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .prize-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+    </style>
+</head>
+<body class="matrix-bg font-inter text-white">
+
+      <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+<script>
+             const lenis = new Lenis({
+              duration: 1.2,   // scroll किती soft/smooth हवा ते (जास्त नंबर = जास्त smooth)
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // default easing
+               });
+
+            function raf(time) {
+            lenis.raf(time);
+             requestAnimationFrame(raf);
+                 }
+
+              requestAnimationFrame(raf);
+   </script>
+          <!-- Announcement Bar -->
+<div class="bg-purple-800 text-white py-3 text-center font-inter text-lg overflow-hidden">
+  <marquee behavior="scroll" direction="left" scrollamount="9">
+    📸PhotoVision Contest '26 Registration Opens Soon! &nbsp; | &nbsp;
+    🏙️Street Photography, 👥People & Culture, 🌃Night Photography, 🎨Street Art & Murals, 🦁Animal Photography Announced! &nbsp; | &nbsp;
+    🥇 Exciting Prizes Await for Winners! &nbsp; | &nbsp;
+    📢 Stay Tuned for Schedule Updates!
+  </marquee>
+</div>
+
+     <!-- Hero Section -->
+
+    <section class="matrix-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+
+
+        <div class="container mx-auto px-6 text-center text-white relative z-10">
+            <div class="mb-8">
+                <br><br><br><br>
+                <h1 class="text-6xl md:text-7xl font-orbitron font-bold mb-6 leading-tight glow-text">
+                    PhotoVision Contest '26
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-4 font-inter">
+                    The Ultimate PhotoVision Contest  Experience
+                </p>
+                <p class="font-orbitron text-xl font-bold mb-2 text-purple-400">
+                    Government Polytechnic Ratnagiri
+                </p>
+            </div>
+
+           <!-- Countdown Timer -->
+            <div class="countdown-box rounded-2xl p-6 mb-12 max-w-2xl mx-auto">
+                <h3 class="font-orbitron text-xl font-bold mb-2 text-purple-400">⏰
+                       PhotoVision Contest Countdown
+                </h3>
+                <div class="grid grid-cols-4 gap-4 text-center">
+                    <div>
+                        <div class="text-3xl font-orbitron font-bold glow-text" id="days">227</div>
+                        <div class="text-sm uppercase tracking-wide font-inter">Days</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-orbitron font-bold glow-text" id="hours">08</div>
+                        <div class="text-sm uppercase tracking-wide font-inter">Hours</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-orbitron font-bold glow-text" id="minutes">4</div>
+                        <div class="text-sm uppercase tracking-wide font-inter">Minutes</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-orbitron font-bold glow-text" id="seconds">15</div>
+                        <div class="text-sm uppercase tracking-wide font-inter">Seconds</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+                <button class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-300 transition-colors pulse-animation">
+                    🎉  Join PhotoVision Contest
+                </button>
+                </div>
+               <br><br>
+
+            <!-- Competition Categories -->
+    <section id="categories" class="py-16 " >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+               <h2 class="font-orbitron text-4xl font-bold mb-8 text-center text-purple-400 glow-text">Competition Categories.!</h2>
+                <p class="text-xl text-purple-200">Choose your category and compete with the best</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="event-card p-6 rounded-xl text-center">
+                    <div class="text-6xl mb-4">🏙️</div>
+                     <h3 class="font-orbitron text-2xl font-bold mb-2 text-purple-400">Street Photography</h3>
+                    <p class="text-purple-200 mb-4 text-lg">Capture raw, unfiltered moments of everyday city life — where streets tell stories of people, culture, and emotions in motion.</p>
+
+                </div>
+
+
+
+                <div class="event-card p-6 rounded-xl text-center">
+                    <div class="text-6xl mb-4">👥</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">People & Culture</h3>
+                    <p class="text-purple-200 mb-4 text-lg">Explore the essence of humanity through vibrant urban life — capturing traditions, emotions, and the culture that connects people together.</p>
+
+                </div>
+
+                <div class="event-card p-6 rounded-xl text-center">
+                    <div class="text-6xl mb-4">🌃</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Night Photography</h3>
+                    <p class="text-purple-200 mb-4 text-lg">Discover the magic of the night — glowing cityscapes, dramatic lights, and the hidden beauty that comes alive after dark.</p>
+
+                </div>
+
+
+
+                <div class="event-card p-6 rounded-xl text-center">
+                    <div class="text-6xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Street Art & Murals</h3>
+                    <p class="text-purple-200 mb-4 text-lg"> Celebrate urban creativity with powerful murals and street art that transform walls into stories and cities into open-air galleries.</p>
+
+                </div>
+
+                <div class="event-card p-6 rounded-xl text-center">
+                    <div class="text-6xl mb-4">🦁</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Animal Photography</h3>
+                    <p class="text-purple-200 mb-4 text-lg">Capture the spirit of animals — from majestic wildlife to playful pets — showcasing their beauty, behavior, and untold stories.</p>
+
+                </div>
+
+                <div class="event-card p-6 rounded-xl text-center">
+                    <div class="text-6xl mb-4">🌿</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Nature & Landscapes</h3>
+                    <p class="text-purple-200 mb-4 text-lg">Discover breathtaking views of mountains, rivers, and skies — capturing the pure beauty and serenity of the natural world.
+</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participation Conditions -->
+    <section id="conditions" class="py-16 bg-gradient-to-b from-[#0a0f2c] to-[#111827]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+               <h2 class="font-orbitron text-4xl font-bold mb-8 text-center text-purple-400 glow-text">Participation Conditions</h2>
+                <p class="text-xl text-purple-200">Important rules and requirements for all contestants</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="event-card p-8 rounded-xl">
+                    <div class="text-6xl mb-4">📋</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Eligibility Requirements</h3>
+                     <p class="text-purple-200 mb-4 text-lg">
+                    <ul class="space-y-3 text-purple-200">
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Must be 18 years or older to participate
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Open to photographers worldwide
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Professional and amateur photographers welcome
+                        </li>
+                    </ul> </p>
+                </div>
+
+                <div class="event-card p-8 rounded-xl">
+                    <div class="text-6xl mb-4">📸</div>
+                   <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Photo Requirements</h3>
+                    <ul class="space-y-3 text-purple-200">
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Original work only - no stock photos
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Minimum resolution: 2000px on longest side
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            JPEG or PNG format accepted
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Maximum file size: 10MB per image
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="event-card p-8 rounded-xl">
+                    <div class="text-6xl mb-4">⚖️</div>
+                   <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Usage Rights & Copyright</h3>
+                    <ul class="space-y-3 text-purple-200">
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            You retain full copyright of your photos
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            PhotoVision may use entries for promotional purposes
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Proper attribution will always be provided
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            No commercial use without photographer consent
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="event-card p-8 rounded-xl">
+                    <div class="text-6xl mb-4">🏆</div>
+                  <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Contest Rules</h3>
+                    <ul class="space-y-3 text-purple-200">
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Maximum 3 submissions per participant
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Photos must fit the "Urban Life" theme
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Basic editing allowed (color, contrast, cropping)
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">•</span>
+                            Heavy manipulation or compositing not permitted
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <!-- Judges Panel -->
+    <section id="judges" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+
+                <h2 class="font-orbitron text-4xl font-bold mb-8 text-center text-purple-400 glow-text">Meet Our Judges</h2>
+                <p class="text-xl text-purple-200">Renowned photographers and industry experts</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="event-card p-8 rounded-xl text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold font-orbitron">
+                        AK
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Alex Kim</h3>
+                    <p class="text-purple-400 font-medium mb-3">National Geographic Photographer</p>
+                    <p class="text-purple-200 text-sm mb-4">Award-winning street photographer with 15+ years capturing urban life across 40+ countries.</p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-sm text-purple-300">Pulitzer Prize Winner</span>
+                    </div>
+                </div>
+
+                <div class="event-card p-8 rounded-xl text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold font-orbitron">
+                        MR
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">Maria Rodriguez</h3>
+                    <p class="text-purple-400 font-medium mb-3">Architectural Photography Expert</p>
+                    <p class="text-purple-200 text-sm mb-4">Specializes in urban architecture and has published 5 photography books on modern cityscapes.</p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-sm text-purple-300">World Press Photo Judge</span>
+                    </div>
+                </div>
+
+                <div class="event-card p-8 rounded-xl text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold font-orbitron">
+                        JL
+                    </div>
+                     <h3 class="text-2xl font-semibold mb-3 text-purple-400 font-orbitron">James Liu</h3>
+                    <p class="text-purple-400 font-medium mb-3">Fine Art & Documentary Photographer</p>
+                    <p class="text-purple-200 text-sm mb-4">Renowned for capturing human stories in urban environments. Featured in major galleries worldwide.</p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-sm text-purple-300">Sony World Photography Awards Judge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+     <!-- Registration Section -->
+    <section id="register" class="py-20 matrix-bg">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-orbitron text-3xl font-bold mb-8 text-center text-purple-400 glow-text">🎉 Join Our PhotoVision Contest!</h2>
+            <p class="text-xl text-purple-200 mb-8 max-w-3xl mx-auto font-inter">
+                Don't miss this amazing opportunity to connect with your college community and create lasting memories!
+            </p>
+
+            <div class="event-card p-8 rounded-2xl max-w-lg mx-auto">
+                <a href="/register?event=Gathering" target="_blank">
+                <button class="w-full bg-yellow-400 text-gray-900 font-bold py-4 rounded-full hover:bg-yellow-300 transition-colors text-lg font-orbitron pulse-animation">
+                    🎉 Join PhotoVision Contest
+                </button></a>
+
+                <p class="text-sm text-purple-200 mt-4 font-inter">
+                    Don't miss this amazing college experience!
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+  <!-- Footer -->
+    <footer class="bg-gray-900 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-3">
+                <div class="text-xl">🎓</div>
+                <h4 class="text-xl font-bold mb-2 text-purple-400">PhotoVision Contest'26</h4>
+            </div>
+
+            <div class="text-sm text-gray-400 mb-3">
+                📍 College Campus | 📅 April 15, 2026 | 📧 PhotoVision2026@college.edu
+            </div>
+
+            <p class="text-gray-400 text-xs mb-1">Government Polytechnic College</p>
+            <p class="text-gray-500 text-xs">
+                &copy; 2026 PhotoVision Contest. Connect • Celebrate • Create Memories 🎉
+            </p>
+        </div>
+    </footer>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974a33d1134c3501',t:'MTc1NjExNTYwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+      <script>
+function updateCountdown() {
+    const eventDate = new Date('April 6, 2026 09:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days.toString().padStart(3, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+        document.getElementById('days').textContent = '000';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+    }
+}
+
+// Update countdown every second
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+</html>
