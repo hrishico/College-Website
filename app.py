@@ -56,6 +56,11 @@ def Gathering_page():
 @app.route('/musicfest')
 def musicfest():
     return render_template('musicfest.html')
+  
+  @app.route('/PhotoVision')
+def musicfest():
+    return render_template('PhotoVision.html')
+
 
 
 @app.route('/admin')
