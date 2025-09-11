@@ -7,7 +7,7 @@ app = Flask(__name__)
 db = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="shreyash45",
+    password="Root@123",
     database="college_event"
 )
 
@@ -56,10 +56,15 @@ def Gathering_page():
 @app.route('/musicfest')
 def musicfest():
     return render_template('musicfest.html')
-  
-  @app.route('/PhotoVision')
-def musicfest():
+
+
+@app.route('/PhotoVision')
+def photovision_page():
     return render_template('PhotoVision.html')
+
+@app.route('/ScienceCarnival')
+def scienceCarnival_page():
+    return render_template('ScienceCarnival.html')
 
 
 

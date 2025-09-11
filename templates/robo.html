@@ -4,342 +4,569 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robo Show 2025 - Govt. Polytechnic Ratnagiri</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Import both fonts -->
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <style>
-    /* Default font for body = Inter */
+    /* --- Global Styles --- */
     body {
       font-family: 'Inter', sans-serif;
       background-color: rgb(13, 21, 18);
       color: white;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Use Orbitron only for headings & special titles */
-    h1, h2, h3, h4, h5, h6,
-    .font-orbitron {
+    h1, h2, h3, h4, h5, h6, .font-orbitron {
       font-family: 'Orbitron', sans-serif;
     }
 
-    header {
-      background: linear-gradient(90deg, #1a001a, #2b0033);
-      box-shadow: 0 0 20px #a855f7;
-    }
+    a { text-decoration: none; }
+
+    img { display: block; max-width: 100%; }
+
+    /* --- Glow text --- */
     .glow-text {
       text-shadow: 0 0 8px #a855f7, 0 0 16px #a855f7;
     }
+
+    /* --- Ticker --- */
+    .ticker-wrapper {
+      overflow: hidden;
+      background-color: #a855f7;
+      color: black;
+      padding: 0.1rem 0;
+    }
+
+    .ticker {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll-left 12s linear infinite;
+      font-weight: bold;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* --- Hero --- */
+    .hero {
+      height: 100vh; /* Fullscreen */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 1.5rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    @media(min-width: 768px) {
+      .hero-content h1 { font-size: 4.5rem; }
+    }
+
+    .hero-content p {
+      max-width: 36rem;
+      margin: 0 auto 2rem auto;
+      color: #d1d5db;
+      font-size: 1.125rem;
+    }
+
+    .btn {
+      padding: 0.70rem 1.5rem;
+      background-color: #a855f7;
+      color: black;
+      font-weight: bold;
+      border-radius: 1rem;
+      transition: background 0.3s, transform 0.3s;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #c084fc;
+      transform: scale(1.05);
+    }
+
+    /* --- Glass cards --- */
     .glass-card {
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 1rem;
+      padding: 1.5rem;
       transition: all 0.3s;
     }
+
     .glass-card:hover {
       transform: translateY(-6px) scale(1.02);
       border-color: #a855f7;
       box-shadow: 0 0 15px #a855f7;
     }
-    .ticker {
-      display: inline-block;
-      white-space: nowrap;
-      animation: scroll-left 12s linear infinite;
+
+    /* --- Sections --- */
+    section {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
     }
-    @keyframes scroll-left {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+
+    /* --- About Section --- */
+    #about {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
     }
+
+    #about img {
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    @media(min-width: 768px) {
+      #about { flex-direction: row; }
+      #about div { flex: 1; }
+      #about img { flex: 1; }
+    }
+
+    /* --- Event Highlights --- */
+    #events .bordered-list {
+      border-left: 4px solid #a855f7;
+      padding-left: 1.5rem;
+    }
+
+    #events .glass-card { margin-bottom: 2rem; }
+
+    /* --- Grids --- */
+    .grid { display: grid; gap: 2rem; }
+    #schedule .grid { grid-template-columns: 1fr; }
+    #competitions .grid { grid-template-columns: 1fr; }
+    #prizes .grid { grid-template-columns: 1fr; }
+    #gallery .grid { grid-template-columns: 1fr; }
+
+    @media(min-width: 768px) {
+      #schedule .grid { grid-template-columns: repeat(3,1fr); }
+      #competitions .grid { grid-template-columns: repeat(2,1fr); }
+      #prizes .grid { grid-template-columns: repeat(3,1fr); }
+      #gallery .grid { grid-template-columns: repeat(3,1fr); }
+    }
+
+    @media(min-width: 1024px) {
+      #competitions .grid { grid-template-columns: repeat(3,1fr); }
+    }
+
+    #gallery .glass-card img {
+      height: 15rem;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    #gallery .glass-card img:hover { transform: scale(1.1); }
+
+    /* --- Register Section Fullscreen --- */
+    #register {
+      height: 50vh; /* Fullscreen */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Center vertically */
+      align-items: center;     /* Center horizontally */
+      text-align: center;
+      color: black;
+      background: linear-gradient(to right, #a855f7, #ec4899);
+      padding: 2rem;
+    }
+
+    #register h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: white;
+      text-shadow: 0 0 12px black;
+    }
+
+    #register p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #111;
+    }
+
+    #register .btn {
+      background-color: black;
+      color: #a855f7;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+    }
+
+    #register .btn:hover {
+      background-color: #111;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px black;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background-color: black;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    /* --- Countdown --- */
+    .countdown-box {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      max-width: 24rem;
+      margin: 2rem auto;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      animation: zoomIn 0.5s ease;
+      text-align: center;
+    }
+
+    .countdown-box .grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .countdown-box .text-xs {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    #competitions .glass-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    #competitions .glass-card a.btn {
+      width: auto;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+    }
+
+
+    /* --- Schedule Section --- */
+#schedule {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.header {
+  text-align:center;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #a855f7;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 8px #a855f7, 0 0 16px #a855f7;
+}
+
+.date-time {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: #d1d5db;
+  font-size: 1rem;
+}
+
+.date-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #a855f7;
+}
+
+.overall-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.overall-time-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #a855f7;
+}
+
+.schedule-table-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-weight: bold;
+  color: #a855f7;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid rgba(168, 85, 247, 0.6);
+  margin-bottom: 0.75rem;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s;
+}
+
+.schedule-item:hover {
+  transform: translateY(-3px);
+  border-color: #a855f7;
+  box-shadow: 0 0 12px #a855f7;
+}
+
+.schedule-item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.schedule-item-icon {
+  font-size: 1.25rem;
+}
+
+.schedule-item.highlighted {
+  background: linear-gradient(90deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));
+  border: 1px solid #a855f7;
+  box-shadow: 0 0 18px rgba(168,85,247,0.8);
+}
+
   </style>
 </head>
+
 <body>
 
-
   <!-- Ticker -->
-  <div class="overflow-hidden bg-purple-500 text-black py-2">
-    <p class="ticker font-bold">⚡ Updates: Registration Open | Workshops | Battle Bots Arena | Tech Talk with AI Experts ⚡</p>
+  <div class="ticker-wrapper">
+    <p class="ticker">⚡ Updates: Registration Open | Workshops | Battle Bots Arena | Tech Talk with AI Experts ⚡</p>
   </div>
 
   <!-- Hero -->
-<section
-  class="h-screen flex flex-col justify-center items-center text-center relative bg-cover bg-center"
-  style="background-image: url('static/assets/images/robohero2.jpg');">
+  <section class="hero" style="background-image: url('static/assets/images/robohero2.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="glow-text">Robo Show 2025</h1>
+      <p>Battle Bots ⚔ • Robo Soccer ⚽ • Drone Races 🛸 • AI Challenges 🤖</p>
+      <a href="#register?event=Robo Show" class="btn">Get Started</a>
 
-  <!-- Dark overlay -->
-  <div class="absolute inset-0 bg-black/70"></div>
-
-  <!-- Hero Content -->
-  <div class="relative z-10 px-6">
-    <h1 class="text-5xl md:text-7xl font-extrabold glow-text mb-6">Robo Show 2026</h1>
-    <p class="max-w-2xl mx-auto mb-8 text-gray-300 text-lg">
-      Battle Bots ⚔ • Robo Soccer ⚽ • Drone Races 🛸 • AI Challenges 🤖
-    </p>
-    <a href="#register?event=Robo Show"
-       class="px-6 py-3 bg-purple-500 text-black font-bold rounded-xl hover:bg-purple-400 transition">
-       Get Started
-    </a>
-  </div><br><br>
-    <!-- Countdown -->
-        <div class="countdown-box p-6 rounded-lg max-w-md mx-auto mb-8 bg-black bg-opacity-40 backdrop-blur-md animate-zoomInDelay">
-            <div class="text-purple-400 font-orbitron text-sm mb-2">BATTLE BEGINS IN:</div>
-            <div class="font-orbitron text-3xl font-bold text-white" id="countdown-timer">
-                <div class="grid grid-cols-4 gap-2 text-center">
-                    <div><div id="days" class="text-2xl">100</div><div class="text-xs text-gray-400">DAYS</div></div>
-                    <div><div id="hours" class="text-2xl">10</div><div class="text-xs text-gray-400">HRS</div></div>
-                    <div><div id="minutes" class="text-2xl">24</div><div class="text-xs text-gray-400">MIN</div></div>
-                    <div><div id="seconds" class="text-2xl">48</div><div class="text-xs text-gray-400">SEC</div></div>
-                </div>
-            </div>
+      <!-- Countdown -->
+      <div class="countdown-box">
+        <div class="font-orbitron" style="color:#a855f7; margin-bottom:0.5rem;">BATTLE BEGINS IN:</div>
+        <div class="font-orbitron" id="countdown-timer">
+          <div class="grid">
+            <div><div id="days">100</div><div class="text-xs">DAYS</div></div>
+            <div><div id="hours">10</div><div class="text-xs">HRS</div></div>
+            <div><div id="minutes">24</div><div class="text-xs">MIN</div></div>
+            <div><div id="seconds">48</div><div class="text-xs">SEC</div></div>
+          </div>
         </div>
+      </div>
     </div>
-</header>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <img src="static/assets/images/robot8.jpg" alt="Robot Image">
+    <div>
+      <h2 class="glow-text">About Robo Show</h2>
+      <p>An annual tech extravaganza where robots come alive! Witness cutting-edge robotics in action — from soccer-playing bots to intelligent drones. Experience innovation, creativity, and adrenaline in one event.</p>
+    </div>
+  </section>
+
+  <!-- Event Highlights -->
+  <section id="events">
+    <h2 class="glow-text" style="text-align:center;">Event Highlights</h2>
+    <div class="bordered-list">
+      <div class="glass-card">
+        <h3>⚔ Battle Bots</h3>
+        <p>Robots fight head-to-head in a steel arena.</p>
+      </div>
+      <div class="glass-card">
+        <h3>⚽ Robo Soccer</h3>
+        <p>Teams of AI robots compete in soccer matches.</p>
+      </div>
+      <div class="glass-card">
+        <h3>🛸 Drone Racing</h3>
+        <p>Test drone agility through obstacle-filled courses.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Schedule -->
+<section id="schedule">
+  <div class="header">
+    <svg xmlns="http://www.w3.org/2000/svg" class="header-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19 4h-1V3a1 1 0 0 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zM5 6h14a1 1 0 0 1 1 1v2H4V7a1 1 0 0 1 1-1zm14 14H5a1 1 0 0 1-1-1v-8h16v8a1 1 0 0 1-1 1zM11 11h2v2h-2zm4 0h2v2h-2zm-8 0h2v2H7z"/>
+    </svg>
+    <h1 class="header-title">Event Schedule</h1>
+  </div>
+
+  <!-- Date and Time -->
+  <div class="date-time">
+    <p class="date-text">20th March 2026</p>
+    <div class="overall-time">
+      <svg xmlns="http://www.w3.org/2000/svg" class="overall-time-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+        <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"/>
+      </svg>
+      <span>Overall Time: <span class="overall-time-value">9:30 AM – 3:00 PM</span></span>
+    </div>
+  </div>
+
+  <!-- Schedule Table -->
+  <div class="schedule-table-header">
+    <span>Competition</span>
+    <span>Time</span>
+  </div>
+
+  <div class="schedule-list">
+    <div class="schedule-item"><div class="schedule-item-content"><span class="schedule-item-icon">⚔</span><span>Battle Bots</span></div><div>9:30 AM – 10:30 AM</div></div>
+    <div class="schedule-item"><div class="schedule-item-content"><span class="schedule-item-icon">🚁</span><span>Drone Race</span></div><div>10:30 AM – 11:30 AM</div></div>
+    <div class="schedule-item"><div class="schedule-item-content"><span class="schedule-item-icon">⚽</span><span>Robo Soccer</span></div><div>11:30 AM – 12:30 PM</div></div>
+    <div class="schedule-item highlighted"><div class="schedule-item-content"><span class="schedule-item-icon">🤖</span><span>Robotics Expo</span></div><div>12:30 PM – 1:30 PM</div></div>
+    <div class="schedule-item"><div class="schedule-item-content"><span class="schedule-item-icon">🧠</span><span>AI Challenge</span></div><div>1:30 PM – 2:15 PM</div></div>
+    <div class="schedule-item"><div class="schedule-item-content"><span class="schedule-item-icon">🔥</span><span>Robo War</span></div><div>2:15 PM – 3:00 PM</div></div>
+  </div>
 </section>
 
-  <!-- About -->
-  <section id="about" class="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10 items-center">
-    <img src="static/assets/images/robot8.jpg" class="rounded-2xl shadow-lg">
-    <div>
-      <h2 class="text-4xl font-bold glow-text mb-6">About Robo Show</h2>
-      <p class="text-gray-300 leading-relaxed">An annual tech extravaganza where robots come alive! Witness cutting-edge robotics in action — from soccer-playing bots to intelligent drones. Experience innovation, creativity, and adrenaline in one event.</p>
-    </div>
-  </section>
-
-  <!-- Events -->
-  <section id="events" class="max-w-6xl mx-auto py-20 px-6">
-    <h2 class="text-4xl font-bold glow-text mb-12 text-center">Event Highlights</h2>
-    <div class="space-y-8 border-l-4 border-purple-500 pl-6">
-      <div class="glass-card p-6 rounded-xl">
-        <h3 class="text-2xl font-semibold mb-2">⚔ Battle Bots</h3>
-        <p class="text-gray-300">Robots fight head-to-head in a steel arena.</p>
-      </div>
-      <div class="glass-card p-6 rounded-xl">
-        <h3 class="text-2xl font-semibold mb-2">⚽ Robo Soccer</h3>
-        <p class="text-gray-300">Teams of AI robots compete in soccer matches.</p>
-      </div>
-      <div class="glass-card p-6 rounded-xl">
-        <h3 class="text-2xl font-semibold mb-2">🛸 Drone Racing</h3>
-        <p class="text-gray-300">Test drone agility through obstacle-filled courses.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Schedule -->
-  <!-- Schedule -->
-  <section id="schedule" class="max-w-6xl mx-auto py-20 px-6 text-center">
-    <h2 class="text-4xl font-bold glow-text mb-12">📅 Event Schedule</h2>
-
-    <div class="glass-card p-8 rounded-xl">
-      <h3 class="text-2xl font-semibold text-purple-400 mb-6">20th March 2026</h3>
-      <p class="text-gray-300 mb-6">⏰ Overall Time: <span class="font-bold text-white">9:30 AM – 3:00 PM</span></p>
-
-      <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-purple-600 text-black">
-              <th class="py-3 px-4 rounded-l-lg">Competition</th>
-              <th class="py-3 px-4">Time</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300">
-            <tr class="border-b border-gray-700 hover:bg-purple-900/30 transition">
-              <td class="py-3 px-4">⚔ Battle Bots</td>
-              <td class="py-3 px-4">9:30 AM – 10:30 AM</td>
-            </tr>
-            <tr class="border-b border-gray-700 hover:bg-purple-900/30 transition">
-              <td class="py-3 px-4">🛸 Drone Race</td>
-              <td class="py-3 px-4">10:30 AM – 11:30 AM</td>
-            </tr>
-            <tr class="border-b border-gray-700 hover:bg-purple-900/30 transition">
-              <td class="py-3 px-4">⚽ Robo Soccer</td>
-              <td class="py-3 px-4">11:30 AM – 12:30 PM</td>
-            </tr>
-            <tr class="border-b border-gray-700 hover:bg-purple-900/30 transition">
-              <td class="py-3 px-4">🏟 Robotics Expo</td>
-              <td class="py-3 px-4">12:30 PM – 1:30 PM</td>
-            </tr>
-            <tr class="border-b border-gray-700 hover:bg-purple-900/30 transition">
-              <td class="py-3 px-4">🤖 AI Challenge</td>
-              <td class="py-3 px-4">1:30 PM – 2:15 PM</td>
-            </tr>
-            <tr class="hover:bg-purple-900/30 transition">
-              <td class="py-3 px-4">🔥 Robo War</td>
-              <td class="py-3 px-4">2:15 PM – 3:00 PM</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
 
   <!-- Competitions -->
-  <section id="competitions" class="max-w-6xl mx-auto py-20 px-6">
-    <h2 class="text-4xl font-bold glow-text mb-12 text-center">Competitions</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <section id="competitions">
+    <h2 class="glow-text" style="text-align:center;">Competitions</h2>
+    <div class="grid">
+      <div class="glass-card"><h3>⚔ Battle Bots</h3><p>Robots clash in an arena, testing strength, durability, and strategy.</p><a href="/register?event=Battle Bots" class="btn">Join Now</a></div>
+      <div class="glass-card"><h3>🛸 Drone Race</h3><p>High-speed drone racing through a challenging obstacle course.</p><a href="/register?event=Drone Race" class="btn">Join Now</a></div>
+      <div class="glass-card"><h3>⚽ Robo Soccer</h3><p>Teams of intelligent robots compete in fast-paced soccer matches.</p><a href="/register?event=Robo Soccer" class="btn">Join Now</a></div>
+      <div class="glass-card"><h3>🏟 Robotics Expo</h3><p>Showcase your innovative robots and creative automation projects.</p><a href="/register?event=Robotics Expo" class="btn">Join Now</a></div>
+      <div class="glass-card"><h3>🤖 AI Challenge</h3><p>Compete in building AI-powered bots and solving real-world tasks.</p><a href="/register?event=AI Challenge" class="btn">Join Now</a></div>
+      <div class="glass-card"><h3>🔥 Robo War</h3><p>The ultimate showdown where powerful robots battle for dominance.</p><a href="/register?event=Robo War" class="btn">Join Now</a></div>
+    </div>
+  </section>
 
-      <!-- Competition 1 -->
-      <div class="glass-card p-6 rounded-xl flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-semibold mb-2">⚔ Battle Bots</h3>
-          <p class="text-gray-300 mb-4">Robots clash in an arena, testing strength, durability, and strategy.</p>
-        </div>
-        <a href="/register?event=Battel Bots" class="mt-auto inline-block px-4 py-2 bg-purple-500 text-black font-bold rounded-lg hover:bg-purple-400 transition text-center w-full">Join Now</a>
-      </div>
+  <!-- Prizes -->
+  <section id="prizes">
+    <h2 class="glow-text" style="text-align:center;">Prizes & Awards</h2>
+    <div class="grid">
+      <div class="glass-card"><h3 style="color:gold;">🥇 1st Prize</h3><p>₹25,000 + Trophy + Certificate</p></div>
+      <div class="glass-card"><h3 style="color:silver;">🥈 2nd Prize</h3><p>₹15,000 + Medal + Certificate</p></div>
+      <div class="glass-card"><h3 style="color:orange;">🥉 3rd Prize</h3><p>₹10,000 + Medal + Certificate</p></div>
+    </div>
+    <p style="color:#9ca3af; margin-top:1rem;">🏆 All participants will receive e-certificates</p>
+  </section>
 
-      <!-- Competition 2 -->
-      <div class="glass-card p-6 rounded-xl flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-semibold mb-2">🛸 Drone Race</h3>
-          <p class="text-gray-300 mb-4">High-speed drone racing through a challenging obstacle course.</p>
-        </div>
-        <a href="/register?event=Drone Race" class="mt-auto inline-block px-4 py-2 bg-purple-500 text-black font-bold rounded-lg hover:bg-purple-400 transition text-center w-full">Join Now</a>
-      </div>
-
-      <!-- Competition 3 -->
-      <div class="glass-card p-6 rounded-xl flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-semibold mb-2">⚽ Robo Soccer</h3>
-          <p class="text-gray-300 mb-4">Teams of intelligent robots compete in fast-paced soccer matches.</p>
-        </div>
-        <a href="/register?event=Robo Soccer" class="mt-auto inline-block px-4 py-2 bg-purple-500 text-black font-bold rounded-lg hover:bg-purple-400 transition text-center w-full">Join Now</a>
-      </div>
-
-      <!-- Competition 4 -->
-      <div class="glass-card p-6 rounded-xl flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-semibold mb-2">🏟 Robotics Expo</h3>
-          <p class="text-gray-300 mb-4">Showcase your innovative robots and creative automation projects.</p>
-        </div>
-        <a href="/register?event=Robotics expo" class="mt-auto inline-block px-4 py-2 bg-purple-500 text-black font-bold rounded-lg hover:bg-purple-400 transition text-center w-full">Join Now</a>
-      </div>
-
-      <!-- Competition 5 -->
-      <div class="glass-card p-6 rounded-xl flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-semibold mb-2">🤖 AI Challenge</h3>
-          <p class="text-gray-300 mb-4">Compete in building AI-powered bots and solving real-world tasks.</p>
-        </div>
-        <a href="/register?event=AI challenge" class="mt-auto inline-block px-4 py-2 bg-purple-500 text-black font-bold rounded-lg hover:bg-purple-400 transition text-center w-full">Join Now</a>
-      </div>
-
-      <!-- Competition 6 -->
-      <div class="glass-card p-6 rounded-xl flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-semibold mb-2">🔥 Robo War</h3>
-          <p class="text-gray-300 mb-4">The ultimate showdown where powerful robots battle for dominance.</p>
-        </div>
-        <a href="/register?event=Robo War" class="mt-auto inline-block px-4 py-2 bg-purple-500 text-black font-bold rounded-lg hover:bg-purple-400 transition text-center w-full">Join Now</a>
-      </div>
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2 class="glow-text" style="text-align:center;">Past Robo Exhibition Gallery</h2>
+    <div class="grid">
+      <div class="glass-card"><img src="static/assets/images/robot1.jpg" alt="Battle Bots Past"></div>
+      <div class="glass-card"><img src="static/assets/images/robot2.jpeg" alt="Drone Race Past"></div>
+      <div class="glass-card"><img src="static/assets/images/robot5.jpg" alt="Robo Soccer Past"></div>
 
     </div>
   </section>
 
+  <!-- Register (Fullscreen) -->
+  <section id="register">
+    <h2>Register Now</h2>
+    <p>Don’t miss the most thrilling robotics showcase of 2025!</p>
+    <a href="/register?event=Robo Show" class="btn">Register Online</a>
+  </section>
 
-    <!-- Prizes -->
-  <section id="prizes" class="max-w-6xl mx-auto py-20 px-6 text-center">
-    <h2 class="text-4xl font-bold glow-text mb-12">Prizes & Awards</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      
-      <!-- 1st Prize -->
-      <div class="glass-card p-6 rounded-2xl">
-        <h3 class="text-3xl font-bold text-yellow-400 mb-4">🥇 1st Prize</h3>
-        <p class="text-gray-300">₹25,000 + Trophy + Certificate</p>
+  <!-- Footer -->
+  <footer>
+    <div>
+      <div style="display:flex; justify-content:center; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+        <div style="font-size:1.5rem;">💻</div>
+        <h4 class="font-orbitron glow-text" style="margin:0;">Robo Show 2025</h4>
       </div>
-
-      <!-- 2nd Prize -->
-      <div class="glass-card p-6 rounded-2xl">
-        <h3 class="text-3xl font-bold text-gray-300 mb-4">🥈 2nd Prize</h3>
-        <p class="text-gray-300">₹15,000 + Medal + Certificate</p>
-      </div>
-
-      <!-- 3rd Prize -->
-      <div class="glass-card p-6 rounded-2xl">
-        <h3 class="text-3xl font-bold text-orange-400 mb-4">🥉 3rd Prize</h3>
-        <p class="text-gray-300">₹10,000 + Medal + Certificate</p>
-      </div>
+      <p style="color:#9ca3af;">Government Polytechnic Ratnagiri</p>
+      <p style="color:#6b7280; font-size:0.875rem;">&copy; 2025 Robo Show. All rights reserved.</p>
     </div>
-    <p class="text-gray-400 mt-8">🏆 All participants will receive e-certificates</p>
-  </section>
+  </footer>
 
-
-    <!-- Gallery -->
-  <section id="gallery" class="max-w-6xl mx-auto py-20 px-6">
-    <h2 class="text-4xl font-bold glow-text mb-12 text-center">Past Robo exhibition Gallery</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="glass-card overflow-hidden rounded-xl">
-        <img src="static/assets/images/robot1.jpg"
-             alt="Battle Bots Past" class="w-full h-60 object-cover hover:scale-110 transition">
-      </div>
-      <div class="glass-card overflow-hidden rounded-xl">
-        <img src="static/assets/images/robot2.jpeg"
-             alt="Drone Race Past" class="w-full h-60 object-cover hover:scale-110 transition">
-      </div>
-      <div class="glass-card overflow-hidden rounded-xl">
-        <img src="static/assets/images/robot4.jpeg"
-             alt="Robo Soccer Past" class="w-full h-60 object-cover hover:scale-110 transition">
-      </div>
-      <div class="glass-card overflow-hidden rounded-xl">
-        <img src="static/assets/images/robot5.jpg"
-             alt="Robotics Expo" class="w-full h-60 object-cover hover:scale-110 transition">
-      </div>
-      <div class="glass-card overflow-hidden rounded-xl">
-        <img src="static/assets/images/robot6.png"
-             alt="AI Challenge" class="w-full h-60 object-cover hover:scale-110 transition">
-      </div>
-      <div class="glass-card overflow-hidden rounded-xl">
-        <img src="static/assets/images/robot7.jpg"
-             alt="Past Robo Show" class="w-full h-60 object-cover hover:scale-110 transition">
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Register -->
-  <section id="register" class="py-20 bg-gradient-to-r from-purple-600 to-pink-500 text-black text-center">
-    <h2 class="text-4xl font-bold mb-6">Register Now</h2>
-    <p class="mb-6 text-lg">Don’t miss the most thrilling robotics showcase of 2026!</p>
-    <a href="/register?event=robo Show" class="px-6 py-3 bg-black text-purple-400 font-bold rounded-xl hover:bg-gray-900 transition">Register Online</a>
-  </section>
- 
-   <footer class="bg-black py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex items-center justify-center space-x-2 mb-4">
-                <div class="text-2xl">💻</div>
-                <h4 class="font-orbitron text-xl font-bold glow-text">Robo Show2026</h4>
-            </div>
-            <p class="text-gray-400 mb-2">Government Polytechnic Ratnagiri</p>
-            <p class="text-gray-500 text-sm">
-                &copy; 2026 Robo Show. All rights reserved.
-            </p>
-        </div>
-    </footer>
-
-      <script>
-// Set your event date here (YYYY-MM-DDTHH:MM:SS)
-const eventDate = new Date("2025-12-31T10:00:00").getTime();
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-
-    if (distance < 0) {
+  <script>
+    const eventDate = new Date("2025-12-31T10:00:00").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      if(distance < 0) {
         document.getElementById("countdown-timer").innerHTML = "EVENT STARTED!";
         return;
+      }
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
     }
+    setInterval(updateCountdown,1000);
+    updateCountdown();
+  </script>
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
-}
-
-// Update every second
-setInterval(updateCountdown, 1000);
-updateCountdown();
-</script>
-  
 </body>
 </html>

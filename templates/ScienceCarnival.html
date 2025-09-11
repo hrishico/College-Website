@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Science Exhibition 2025 - Govt. Polytechnic Ratnagiri</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;padding:0;
+      font-family:'Inter',sans-serif;
+      background: linear-gradient(135deg, #0a0a0f, #1a1a2e);
+      color:#ffffff;
+    }
+
+    .container{max-width:1200px;margin:0 auto;padding-inline:24px}
+    .section{padding:64px 0}
+    .section-lg{padding:96px 0}
+    .center{text-align:center}
+
+    h1,h2,h3,h4,h5,h6{font-family:'Orbitron',monospace}
+    .h1{font-size:clamp(2.5rem,5vw,3.5rem)}
+    .h2{font-size:2rem;margin-bottom:16px}
+    .lead{font-size:1.2rem;color:#d1d1db;margin-top:8px}
+
+    .btn{
+      display:inline-block;padding:12px 22px;border-radius:14px;
+      font-family:'Orbitron',monospace;
+      background:#7c3aed;color:#fff;
+      text-decoration:none;font-weight:600;transition:.3s
+    }
+    .btn:hover{background:#6d28d9}
+
+    .glass{
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.20);
+      backdrop-filter:blur(10px);
+      border-radius:16px;
+      padding:24px;
+    }
+
+    .glow-text{
+      text-shadow:0 0 10px #a855f7,0 0 20px #7c3aed
+    }
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(135deg,#4c1d95,#000 60%,#1e1b4b);
+      padding:72px 0
+    }
+    .hero-inner{
+      display:flex;flex-direction:column;align-items:center;gap:16px;
+      min-height:50vh;justify-content:center
+    }
+
+    /* Ticker */
+    .ticker{
+      background:linear-gradient(90deg,#3b1b9a,#000,#3b1b9a);
+      overflow:hidden
+    }
+    .ticker-strip{
+      white-space:nowrap;display:inline-block;
+      animation:marquee 15s linear infinite;
+      color:#c084fc;
+      padding:12px;font-weight:600
+    }
+    @keyframes marquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+    /* Categories */
+    .categories .grid{
+      display:grid;gap:20px;grid-template-columns:1fr;
+      max-width:1000px;margin:auto
+    }
+    @media(min-width:800px){.categories .grid{grid-template-columns:repeat(3,1fr)}}
+    .cat-card{text-align:center;padding:28px;transition:.3s}
+    .cat-card:hover{transform:translateY(-6px)}
+
+    /* Display Zone */
+    .display-zone .grid{
+      display:grid;gap:20px;grid-template-columns:1fr;
+      max-width:900px;margin:auto
+    }
+    @media(min-width:800px){.display-zone .grid{grid-template-columns:1fr 1fr}}
+
+    /* Judging */
+    .judging ul{list-style:none;padding:0;max-width:700px;margin:auto}
+    .judging li{margin:10px 0;padding:12px;border-left:4px solid #a855f7}
+
+    /* Schedule */
+    .schedule .slot{margin:10px 0;padding:18px}
+
+    /* Prizes */
+    .prizes .row{
+      display:grid;gap:20px;grid-template-columns:1fr;
+      max-width:800px;margin:auto
+    }
+    @media(min-width:800px){.prizes .row{grid-template-columns:repeat(3,1fr)}}
+
+    /* Guests */
+    .guests .grid{
+      display:grid;gap:20px;grid-template-columns:1fr;
+      max-width:1000px;margin:auto
+    }
+    @media(min-width:900px){.guests .grid{grid-template-columns:repeat(3,1fr)}}
+    .guest-card{text-align:center;padding:24px}
+    .avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;margin-bottom:14px}
+
+    /* Gallery */
+    .gallery .carousel{
+      display:grid;gap:20px;grid-template-columns:1fr;
+      max-width:1000px;margin:auto
+    }
+    @media(min-width:900px){.gallery .carousel{grid-template-columns:repeat(3,1fr)}}
+    .gallery-card img{border-radius:14px;transition:.3s}
+    .gallery-card img:hover{transform:scale(1.05)}
+
+
+   footer {
+  background: black;
+  text-align: center;
+  padding: 30px 20px;
+  color: #9ca3af;
+}
+
+.footer-title {
+  font-family: Orbitron;
+  font-size: 1.5rem;
+  color: #a78bfa;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #8b5cf6;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Ticker -->
+  <section class="ticker">
+    <div class="container">
+      <div class="ticker-strip">
+        🔬 Science Exhibition 2026 – Registrations Open! | 📅 Exhibition: 25 Sept | 🏆 Prizes worth ₹12,000 | 🌍 Innovate • Discover • Inspire
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-inner center">
+      <h1 class="h1 glow-text">Science Exhibition 2026</h1>
+      <p class="lead">Showcasing Ideas That Shape the Future</p>
+      <a href="/register?event=Science Exhibition " class="btn">Register Now</a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="section about">
+    <div class="container glass">
+      <h2 class="h2 glow-text center">About the Exhibition</h2>
+      <p class="center muted">
+        Science Exhibition 2025 is a platform for students to present their innovative models, prototypes, and research.
+        The event encourages problem-solving, creativity, and scientific thinking to address real-world challenges.
+      </p>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section categories">
+    <div class="container">
+      <h2 class="h2 glow-text center">Exhibition Themes</h2>
+      <div class="grid">
+        <div class="glass cat-card">🌱 Renewable Energy</div>
+        <div class="glass cat-card">🤖 Robotics & Automation</div>
+        <div class="glass cat-card">💻 Artificial Intelligence</div>
+        <div class="glass cat-card">🌍 Environmental Solutions</div>
+        <div class="glass cat-card">🧪 Chemistry & Biology</div>
+        <div class="glass cat-card">🚀 Space & Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Display Zone -->
+  <section class="section display-zone">
+    <div class="container">
+      <h2 class="h2 glow-text center">Project Display Zones</h2>
+      <div class="grid">
+        <div class="glass">Indoor Hall – Working Models & Prototypes</div>
+        <div class="glass">Open Ground – Large Scale Experiments</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Judging Criteria -->
+  <section class="section judging">
+    <div class="container">
+      <h2 class="h2 glow-text center">Judging Criteria</h2>
+      <ul>
+        <li>🔹 Creativity & Originality</li>
+        <li>🔹 Practical Application & Relevance</li>
+        <li>🔹 Innovation & Research</li>
+        <li>🔹 Presentation & Demonstration</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section class="section schedule">
+    <div class="container">
+      <h2 class="h2 glow-text center">Event Schedule</h2>
+      <div class="glass slot"><b>09:30 AM – 10:00 AM</b> Registration & Inauguration</div>
+      <div class="glass slot"><b>10:00 AM – 12:30 PM</b> Project Display & Judging</div>
+      <div class="glass slot"><b>12:30 PM – 01:30 PM</b> Interaction with Guests</div>
+      <div class="glass slot"><b>01:30 PM – 02:00 PM</b> Prize Distribution & Closing</div>
+    </div>
+  </section>
+
+  <!-- Prizes -->
+  <section class="section prizes">
+    <div class="container">
+      <h2 class="h2 glow-text center">🏆 Prizes</h2>
+      <div class="row">
+        <div class="glass"><h3>🥇 First Prize</h3><p>₹6000 + Trophy</p></div>
+        <div class="glass"><h3>🥈 Second Prize</h3><p>₹4000 + Medal</p></div>
+        <div class="glass"><h3>🥉 Third Prize</h3><p>₹2000 + Medal</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guest Speakers -->
+  <section class="section guests">
+    <div class="container">
+      <h2 class="h2 glow-text center">Guest Speakers</h2>
+      <div class="grid">
+        <div class="glass guest-card">
+          <img src="static/assets/images/prof2.jpeg" class="avatar" alt="">
+          <h3>Dr. Meera Kulkarni</h3>
+          <p style="color:#bdbdc7">ISRO Scientist</p>
+        </div>
+        <div class="glass guest-card">
+          <img src="static/assets/images/prof4.jpeg" class="avatar" alt="">
+          <h3>Prof. S. Deshmukh</h3>
+          <p style="color:#bdbdc7">Head of Physics Dept.</p>
+        </div>
+        <div class="glass guest-card">
+          <img src="static/assets/images/prof5.jpeg" class="avatar" alt="">
+          <h3>Mr. R. Patil</h3>
+          <p style="color:#bdbdc7">Tech Entrepreneur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section-lg gallery">
+    <div class="container">
+      <h2 class="h2 glow-text center">Gallery</h2>
+      <div class="carousel">
+        <div class="glass gallery-card"><img src="static/assets/images/sci4.jpeg"></div>
+        <div class="glass gallery-card"><img src="static/assets/images/sci5.jpeg"></div>
+        <div class="glass gallery-card"><img src="static/assets/images/sci6.jpeg"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+    <footer>
+    <div class="footer-title">Science Exhibition 2026</div>
+    <p>Government Polytechnic Ratnagiri</p>
+    <p>&copy; 2026 Science Exhibition. All rights reserved. May the best coder win.</p>
+  </footer>
+</body>
+</html>
